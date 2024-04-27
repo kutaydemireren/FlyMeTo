@@ -41,6 +41,12 @@ final class MockPlacesRepository: PlacesRepository {
 
 //
 
+enum PlacesError: Error {
+    case noResult
+}
+
+//
+
 protocol PlacesInteractor {
     /// Returns an ordered list of `Place`s.
     func getPlaces() async throws -> [Place]
@@ -50,7 +56,11 @@ struct PlacesInteractorImp: PlacesInteractor {
     let repository: PlacesRepository
 
     func getPlaces() async throws -> [Place] {
-        return try await repository.fetchPlaces()
+        let places = try await repository.fetchPlaces()
+        guard !places.isEmpty else {
+            throw PlacesError.noResult
+        }
+        return places
     }
 }
 
@@ -77,6 +87,17 @@ final class PlacesInteractorImpTests: XCTestCase {
             XCTFail("Expected to thrown an error.")
         } catch {
             XCTAssertEqual(error as? TestError, .notAllowed)
+        }
+    }
+
+    func test_getPlaces_whenFetchEmpty_shouldThrowNoResult() async {
+        mockPlacesRepository.places = []
+
+        do {
+            let _ = try await sut.getPlaces()
+            XCTFail("Expected to thrown an error.")
+        } catch {
+            XCTAssertEqual(error as? PlacesError, .noResult)
         }
     }
 }

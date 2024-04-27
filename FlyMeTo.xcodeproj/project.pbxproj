@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA54FBB82BDD9B3100E02F31 /* PlacesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */; };
+		CA54FBBA2BDD9B6400E02F31 /* PlacesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */; };
+		CA54FBBC2BDD9B9A00E02F31 /* PlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */; };
+		CA54FBBF2BDD9BC700E02F31 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBBE2BDD9BC700E02F31 /* Place.swift */; };
+		CA54FBC12BDD9C1E00E02F31 /* Place+Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBC02BDD9C1E00E02F31 /* Place+Stubs.swift */; };
+		CA54FBC42BDD9C8300E02F31 /* MockPlacesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBC32BDD9C8300E02F31 /* MockPlacesPresenter.swift */; };
+		CA54FBC72BDD9CC200E02F31 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBC62BDD9CC200E02F31 /* TestError.swift */; };
+		CA54FBC92BDD9D1D00E02F31 /* MockPlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBC82BDD9D1D00E02F31 /* MockPlacesRepository.swift */; };
 		CA8EB7992BDD876A00A41A95 /* PlacesInteractorImpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EB7982BDD876A00A41A95 /* PlacesInteractorImpTests.swift */; };
 		CAB0EAD12BDD80FA00FD0367 /* FlyMeToApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB0EAD02BDD80FA00FD0367 /* FlyMeToApp.swift */; };
 		CAB0EAD32BDD80FA00FD0367 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB0EAD22BDD80FA00FD0367 /* ContentView.swift */; };
@@ -25,6 +33,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesInteractor.swift; sourceTree = "<group>"; };
+		CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesPresenter.swift; sourceTree = "<group>"; };
+		CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesRepository.swift; sourceTree = "<group>"; };
+		CA54FBBE2BDD9BC700E02F31 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		CA54FBC02BDD9C1E00E02F31 /* Place+Stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Place+Stubs.swift"; sourceTree = "<group>"; };
+		CA54FBC32BDD9C8300E02F31 /* MockPlacesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlacesPresenter.swift; sourceTree = "<group>"; };
+		CA54FBC62BDD9CC200E02F31 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
+		CA54FBC82BDD9D1D00E02F31 /* MockPlacesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlacesRepository.swift; sourceTree = "<group>"; };
 		CA8EB78E2BDD85D600A41A95 /* FlyMeTo.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FlyMeTo.xctestplan; sourceTree = "<group>"; };
 		CA8EB7952BDD873800A41A95 /* FlyMeToTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlyMeToTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		CA8EB7982BDD876A00A41A95 /* PlacesInteractorImpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesInteractorImpTests.swift; sourceTree = "<group>"; };
@@ -54,6 +70,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA54FBB62BDD9B2300E02F31 /* Places */ = {
+			isa = PBXGroup;
+			children = (
+				CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */,
+				CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */,
+				CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */,
+			);
+			path = Places;
+			sourceTree = "<group>";
+		};
+		CA54FBBD2BDD9BBB00E02F31 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				CA54FBBE2BDD9BC700E02F31 /* Place.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		CA54FBC22BDD9C7B00E02F31 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				CA54FBC32BDD9C8300E02F31 /* MockPlacesPresenter.swift */,
+				CA54FBC82BDD9D1D00E02F31 /* MockPlacesRepository.swift */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		CA54FBC52BDD9CAF00E02F31 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CA54FBC62BDD9CC200E02F31 /* TestError.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		CA8EB78F2BDD861C00A41A95 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +127,7 @@
 		CA8EB7942BDD872300A41A95 /* Places */ = {
 			isa = PBXGroup;
 			children = (
+				CA54FBC22BDD9C7B00E02F31 /* Mock */,
 				CA8EB7982BDD876A00A41A95 /* PlacesInteractorImpTests.swift */,
 			);
 			path = Places;
@@ -103,6 +155,8 @@
 		CAB0EACF2BDD80FA00FD0367 /* FlyMeTo */ = {
 			isa = PBXGroup;
 			children = (
+				CA54FBBD2BDD9BBB00E02F31 /* Entities */,
+				CA54FBB62BDD9B2300E02F31 /* Places */,
 				CA8EB78F2BDD861C00A41A95 /* iOS */,
 			);
 			path = FlyMeTo;
@@ -112,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				CAB0EAD72BDD80FD00FD0367 /* Preview Assets.xcassets */,
+				CA54FBC02BDD9C1E00E02F31 /* Place+Stubs.swift */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -119,6 +174,7 @@
 		CAB0EAE02BDD80FD00FD0367 /* FlyMeToTests */ = {
 			isa = PBXGroup;
 			children = (
+				CA54FBC52BDD9CAF00E02F31 /* Utils */,
 				CA8EB7952BDD873800A41A95 /* FlyMeToTests-Bridging-Header.h */,
 				CA8EB7942BDD872300A41A95 /* Places */,
 			);
@@ -226,7 +282,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA54FBC12BDD9C1E00E02F31 /* Place+Stubs.swift in Sources */,
+				CA54FBB82BDD9B3100E02F31 /* PlacesInteractor.swift in Sources */,
 				CAB0EAD32BDD80FA00FD0367 /* ContentView.swift in Sources */,
+				CA54FBBA2BDD9B6400E02F31 /* PlacesPresenter.swift in Sources */,
+				CA54FBBF2BDD9BC700E02F31 /* Place.swift in Sources */,
+				CA54FBBC2BDD9B9A00E02F31 /* PlacesRepository.swift in Sources */,
 				CAB0EAD12BDD80FA00FD0367 /* FlyMeToApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,7 +296,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA54FBC72BDD9CC200E02F31 /* TestError.swift in Sources */,
+				CA54FBC42BDD9C8300E02F31 /* MockPlacesPresenter.swift in Sources */,
 				CA8EB7992BDD876A00A41A95 /* PlacesInteractorImpTests.swift in Sources */,
+				CA54FBC92BDD9D1D00E02F31 /* MockPlacesRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

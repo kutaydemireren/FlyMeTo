@@ -15,6 +15,7 @@
 		CA54FBC42BDD9C8300E02F31 /* MockPlacesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBC32BDD9C8300E02F31 /* MockPlacesPresenter.swift */; };
 		CA54FBC72BDD9CC200E02F31 /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBC62BDD9CC200E02F31 /* TestError.swift */; };
 		CA54FBC92BDD9D1D00E02F31 /* MockPlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBC82BDD9D1D00E02F31 /* MockPlacesRepository.swift */; };
+		CA54FBCF2BDDA7A700E02F31 /* PlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBCE2BDDA7A700E02F31 /* PlacesView.swift */; };
 		CA8EB7992BDD876A00A41A95 /* PlacesInteractorImpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EB7982BDD876A00A41A95 /* PlacesInteractorImpTests.swift */; };
 		CAB0EAD12BDD80FA00FD0367 /* FlyMeToApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB0EAD02BDD80FA00FD0367 /* FlyMeToApp.swift */; };
 		CAB0EAD32BDD80FA00FD0367 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB0EAD22BDD80FA00FD0367 /* ContentView.swift */; };
@@ -41,6 +42,7 @@
 		CA54FBC32BDD9C8300E02F31 /* MockPlacesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlacesPresenter.swift; sourceTree = "<group>"; };
 		CA54FBC62BDD9CC200E02F31 /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		CA54FBC82BDD9D1D00E02F31 /* MockPlacesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlacesRepository.swift; sourceTree = "<group>"; };
+		CA54FBCE2BDDA7A700E02F31 /* PlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesView.swift; sourceTree = "<group>"; };
 		CA8EB78E2BDD85D600A41A95 /* FlyMeTo.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FlyMeTo.xctestplan; sourceTree = "<group>"; };
 		CA8EB7952BDD873800A41A95 /* FlyMeToTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlyMeToTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		CA8EB7982BDD876A00A41A95 /* PlacesInteractorImpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesInteractorImpTests.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */,
 				CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */,
 				CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */,
+				CA54FBCE2BDDA7A700E02F31 /* PlacesView.swift */,
 			);
 			path = Places;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				CA54FBBA2BDD9B6400E02F31 /* PlacesPresenter.swift in Sources */,
 				CA54FBBF2BDD9BC700E02F31 /* Place.swift in Sources */,
 				CA54FBBC2BDD9B9A00E02F31 /* PlacesRepository.swift in Sources */,
+				CA54FBCF2BDDA7A700E02F31 /* PlacesView.swift in Sources */,
 				CAB0EAD12BDD80FA00FD0367 /* FlyMeToApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

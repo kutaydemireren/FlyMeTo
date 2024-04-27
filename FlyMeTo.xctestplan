@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "2A03084A-7696-4F8C-B464-53BF2C267369",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:FlyMeTo.xcodeproj",
+      "identifier" : "CAB0EACC2BDD80FA00FD0367",
+      "name" : "FlyMeTo"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:FlyMeTo.xcodeproj",
+        "identifier" : "CAB0EADC2BDD80FD00FD0367",
+        "name" : "FlyMeToTests"
+      }
+    }
+  ],
+  "version" : 1
+}

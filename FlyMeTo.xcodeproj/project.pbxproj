@@ -12,8 +12,6 @@
 		CAB0EAD52BDD80FD00FD0367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB0EAD42BDD80FD00FD0367 /* Assets.xcassets */; };
 		CAB0EAD82BDD80FD00FD0367 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB0EAD72BDD80FD00FD0367 /* Preview Assets.xcassets */; };
 		CAB0EAE22BDD80FD00FD0367 /* FlyMeToTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB0EAE12BDD80FD00FD0367 /* FlyMeToTests.swift */; };
-		CAB0EAEC2BDD80FD00FD0367 /* FlyMeToUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB0EAEB2BDD80FD00FD0367 /* FlyMeToUITests.swift */; };
-		CAB0EAEE2BDD80FD00FD0367 /* FlyMeToUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB0EAED2BDD80FD00FD0367 /* FlyMeToUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,16 +22,10 @@
 			remoteGlobalIDString = CAB0EACC2BDD80FA00FD0367;
 			remoteInfo = FlyMeTo;
 		};
-		CAB0EAE82BDD80FD00FD0367 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CAB0EAC52BDD80FA00FD0367 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CAB0EACC2BDD80FA00FD0367;
-			remoteInfo = FlyMeTo;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA8EB78E2BDD85D600A41A95 /* FlyMeTo.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FlyMeTo.xctestplan; sourceTree = "<group>"; };
 		CAB0EACD2BDD80FA00FD0367 /* FlyMeTo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyMeTo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB0EAD02BDD80FA00FD0367 /* FlyMeToApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyMeToApp.swift; sourceTree = "<group>"; };
 		CAB0EAD22BDD80FA00FD0367 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -41,9 +33,6 @@
 		CAB0EAD72BDD80FD00FD0367 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CAB0EADD2BDD80FD00FD0367 /* FlyMeToTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlyMeToTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB0EAE12BDD80FD00FD0367 /* FlyMeToTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyMeToTests.swift; sourceTree = "<group>"; };
-		CAB0EAE72BDD80FD00FD0367 /* FlyMeToUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlyMeToUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CAB0EAEB2BDD80FD00FD0367 /* FlyMeToUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyMeToUITests.swift; sourceTree = "<group>"; };
-		CAB0EAED2BDD80FD00FD0367 /* FlyMeToUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyMeToUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,22 +50,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CAB0EAE42BDD80FD00FD0367 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		CAB0EAC42BDD80FA00FD0367 = {
 			isa = PBXGroup;
 			children = (
+				CA8EB78E2BDD85D600A41A95 /* FlyMeTo.xctestplan */,
 				CAB0EACF2BDD80FA00FD0367 /* FlyMeTo */,
 				CAB0EAE02BDD80FD00FD0367 /* FlyMeToTests */,
-				CAB0EAEA2BDD80FD00FD0367 /* FlyMeToUITests */,
 				CAB0EACE2BDD80FA00FD0367 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,7 +68,6 @@
 			children = (
 				CAB0EACD2BDD80FA00FD0367 /* FlyMeTo.app */,
 				CAB0EADD2BDD80FD00FD0367 /* FlyMeToTests.xctest */,
-				CAB0EAE72BDD80FD00FD0367 /* FlyMeToUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -116,15 +97,6 @@
 				CAB0EAE12BDD80FD00FD0367 /* FlyMeToTests.swift */,
 			);
 			path = FlyMeToTests;
-			sourceTree = "<group>";
-		};
-		CAB0EAEA2BDD80FD00FD0367 /* FlyMeToUITests */ = {
-			isa = PBXGroup;
-			children = (
-				CAB0EAEB2BDD80FD00FD0367 /* FlyMeToUITests.swift */,
-				CAB0EAED2BDD80FD00FD0367 /* FlyMeToUITestsLaunchTests.swift */,
-			);
-			path = FlyMeToUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,24 +137,6 @@
 			productReference = CAB0EADD2BDD80FD00FD0367 /* FlyMeToTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		CAB0EAE62BDD80FD00FD0367 /* FlyMeToUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CAB0EAF72BDD80FD00FD0367 /* Build configuration list for PBXNativeTarget "FlyMeToUITests" */;
-			buildPhases = (
-				CAB0EAE32BDD80FD00FD0367 /* Sources */,
-				CAB0EAE42BDD80FD00FD0367 /* Frameworks */,
-				CAB0EAE52BDD80FD00FD0367 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CAB0EAE92BDD80FD00FD0367 /* PBXTargetDependency */,
-			);
-			name = FlyMeToUITests;
-			productName = FlyMeToUITests;
-			productReference = CAB0EAE72BDD80FD00FD0367 /* FlyMeToUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,10 +151,6 @@
 						CreatedOnToolsVersion = 15.0;
 					};
 					CAB0EADC2BDD80FD00FD0367 = {
-						CreatedOnToolsVersion = 15.0;
-						TestTargetID = CAB0EACC2BDD80FA00FD0367;
-					};
-					CAB0EAE62BDD80FD00FD0367 = {
 						CreatedOnToolsVersion = 15.0;
 						TestTargetID = CAB0EACC2BDD80FA00FD0367;
 					};
@@ -221,7 +171,6 @@
 			targets = (
 				CAB0EACC2BDD80FA00FD0367 /* FlyMeTo */,
 				CAB0EADC2BDD80FD00FD0367 /* FlyMeToTests */,
-				CAB0EAE62BDD80FD00FD0367 /* FlyMeToUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -237,13 +186,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		CAB0EADB2BDD80FD00FD0367 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CAB0EAE52BDD80FD00FD0367 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -270,15 +212,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CAB0EAE32BDD80FD00FD0367 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CAB0EAEC2BDD80FD00FD0367 /* FlyMeToUITests.swift in Sources */,
-				CAB0EAEE2BDD80FD00FD0367 /* FlyMeToUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -286,11 +219,6 @@
 			isa = PBXTargetDependency;
 			target = CAB0EACC2BDD80FA00FD0367 /* FlyMeTo */;
 			targetProxy = CAB0EADE2BDD80FD00FD0367 /* PBXContainerItemProxy */;
-		};
-		CAB0EAE92BDD80FD00FD0367 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CAB0EACC2BDD80FA00FD0367 /* FlyMeTo */;
-			targetProxy = CAB0EAE82BDD80FD00FD0367 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -512,42 +440,6 @@
 			};
 			name = Release;
 		};
-		CAB0EAF82BDD80FD00FD0367 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4VYX3TZ9R9;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kutaydemireren.FlyMeToUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FlyMeTo;
-			};
-			name = Debug;
-		};
-		CAB0EAF92BDD80FD00FD0367 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4VYX3TZ9R9;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kutaydemireren.FlyMeToUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FlyMeTo;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -574,15 +466,6 @@
 			buildConfigurations = (
 				CAB0EAF52BDD80FD00FD0367 /* Debug */,
 				CAB0EAF62BDD80FD00FD0367 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CAB0EAF72BDD80FD00FD0367 /* Build configuration list for PBXNativeTarget "FlyMeToUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CAB0EAF82BDD80FD00FD0367 /* Debug */,
-				CAB0EAF92BDD80FD00FD0367 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

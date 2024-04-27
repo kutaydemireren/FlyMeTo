@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA8EB7992BDD876A00A41A95 /* PlacesInteractorImpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8EB7982BDD876A00A41A95 /* PlacesInteractorImpTests.swift */; };
 		CAB0EAD12BDD80FA00FD0367 /* FlyMeToApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB0EAD02BDD80FA00FD0367 /* FlyMeToApp.swift */; };
 		CAB0EAD32BDD80FA00FD0367 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB0EAD22BDD80FA00FD0367 /* ContentView.swift */; };
 		CAB0EAD52BDD80FD00FD0367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB0EAD42BDD80FD00FD0367 /* Assets.xcassets */; };
 		CAB0EAD82BDD80FD00FD0367 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAB0EAD72BDD80FD00FD0367 /* Preview Assets.xcassets */; };
-		CAB0EAE22BDD80FD00FD0367 /* FlyMeToTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB0EAE12BDD80FD00FD0367 /* FlyMeToTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,13 +26,14 @@
 
 /* Begin PBXFileReference section */
 		CA8EB78E2BDD85D600A41A95 /* FlyMeTo.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = FlyMeTo.xctestplan; sourceTree = "<group>"; };
+		CA8EB7952BDD873800A41A95 /* FlyMeToTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlyMeToTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		CA8EB7982BDD876A00A41A95 /* PlacesInteractorImpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesInteractorImpTests.swift; sourceTree = "<group>"; };
 		CAB0EACD2BDD80FA00FD0367 /* FlyMeTo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlyMeTo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAB0EAD02BDD80FA00FD0367 /* FlyMeToApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyMeToApp.swift; sourceTree = "<group>"; };
 		CAB0EAD22BDD80FA00FD0367 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CAB0EAD42BDD80FD00FD0367 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAB0EAD72BDD80FD00FD0367 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CAB0EADD2BDD80FD00FD0367 /* FlyMeToTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlyMeToTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CAB0EAE12BDD80FD00FD0367 /* FlyMeToTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlyMeToTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +71,14 @@
 				CAB0EAD42BDD80FD00FD0367 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		CA8EB7942BDD872300A41A95 /* Places */ = {
+			isa = PBXGroup;
+			children = (
+				CA8EB7982BDD876A00A41A95 /* PlacesInteractorImpTests.swift */,
+			);
+			path = Places;
 			sourceTree = "<group>";
 		};
 		CAB0EAC42BDD80FA00FD0367 = {
@@ -110,7 +119,8 @@
 		CAB0EAE02BDD80FD00FD0367 /* FlyMeToTests */ = {
 			isa = PBXGroup;
 			children = (
-				CAB0EAE12BDD80FD00FD0367 /* FlyMeToTests.swift */,
+				CA8EB7952BDD873800A41A95 /* FlyMeToTests-Bridging-Header.h */,
+				CA8EB7942BDD872300A41A95 /* Places */,
 			);
 			path = FlyMeToTests;
 			sourceTree = "<group>";
@@ -168,6 +178,7 @@
 					};
 					CAB0EADC2BDD80FD00FD0367 = {
 						CreatedOnToolsVersion = 15.0;
+						LastSwiftMigration = 1500;
 						TestTargetID = CAB0EACC2BDD80FA00FD0367;
 					};
 				};
@@ -224,7 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAB0EAE22BDD80FD00FD0367 /* FlyMeToTests.swift in Sources */,
+				CA8EB7992BDD876A00A41A95 /* PlacesInteractorImpTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +432,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4VYX3TZ9R9;
@@ -430,6 +442,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kutaydemireren.FlyMeToTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "FlyMeToTests/FlyMeToTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlyMeTo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FlyMeTo";
@@ -441,6 +455,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4VYX3TZ9R9;
@@ -450,6 +465,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.kutaydemireren.FlyMeToTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "FlyMeToTests/FlyMeToTests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlyMeTo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FlyMeTo";

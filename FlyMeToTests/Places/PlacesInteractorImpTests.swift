@@ -66,7 +66,6 @@ func throwError<T>(_ error: Error?, orReturnValue value: T?) throws -> T {
 }
 
 final class MockPlacesRepository: PlacesRepository {
-
     var error: TestError? = nil
     var places: [Place] = []
 
@@ -83,20 +82,49 @@ enum PlacesError: Error {
 
 //
 
+protocol PlacesPresenter: AnyObject {
+    func failure(error: Error)
+    func update(places: [Place])
+}
+
+//
+
+final class MockPlacesPresenter: PlacesPresenter {
+
+    var updatedPlaces: [Place] = []
+    func update(places: [Place]) {
+        updatedPlaces = places
+    }
+
+    var failureError: Error?
+    func failure(error: Error) {
+        failureError = error
+    }
+}
+
+//
+
 protocol PlacesInteractor {
     /// Returns an ordered list of `Place`s.
-    func getPlaces() async throws -> [Place]
+    func fetchPlaces() async
 }
 
 struct PlacesInteractorImp: PlacesInteractor {
     let repository: PlacesRepository
 
-    func getPlaces() async throws -> [Place] {
-        let places = try await repository.fetchPlaces()
-        guard !places.isEmpty else {
-            throw PlacesError.noResult
+    weak var placesPresenter: PlacesPresenter?
+
+    func fetchPlaces() async {
+        do {
+            let places = try await repository.fetchPlaces()
+            guard !places.isEmpty else {
+                placesPresenter?.failure(error: PlacesError.noResult)
+                return
+            }
+            placesPresenter?.update(places: places)
+        } catch {
+            placesPresenter?.failure(error: error)
         }
-        return places
     }
 }
 
@@ -104,45 +132,41 @@ struct PlacesInteractorImp: PlacesInteractor {
 
 final class PlacesInteractorImpTests: XCTestCase {
     var sut: PlacesInteractorImp!
-    var mockPlacesRepository: MockPlacesRepository!
+    var mockRepository: MockPlacesRepository!
+    var mockPresenter: MockPlacesPresenter!
 
     override func setUpWithError() throws {
-        mockPlacesRepository = MockPlacesRepository()
-        sut = PlacesInteractorImp(repository: mockPlacesRepository)
+        mockRepository = MockPlacesRepository()
+        mockPresenter = MockPlacesPresenter()
+        sut = PlacesInteractorImp(repository: mockRepository, placesPresenter: mockPresenter)
     }
 
     override func tearDownWithError() throws {
         sut = nil
     }
 
-    func test_getPlaces_whenFetchThrowsError_shouldThrowError() async {
-        mockPlacesRepository.error = .notAllowed
+    func test_fetchPlaces_whenRepositoryThrowsError_shouldThrowSameError() async {
+        mockRepository.error = .notAllowed
 
-        do {
-            let _ = try await sut.getPlaces()
-            XCTFail("Expected to thrown an error.")
-        } catch {
-            XCTAssertEqual(error as? TestError, .notAllowed)
-        }
+        await sut.fetchPlaces()
+
+        XCTAssertEqual(mockPresenter.failureError as? TestError, .notAllowed)
     }
 
-    func test_getPlaces_whenFetchEmpty_shouldThrowNoResult() async {
-        mockPlacesRepository.places = []
+    func test_fetchPlaces_whenEmpty_shouldThrowNoResult() async {
+        mockRepository.places = []
 
-        do {
-            let _ = try await sut.getPlaces()
-            XCTFail("Expected to thrown an error.")
-        } catch {
-            XCTAssertEqual(error as? PlacesError, .noResult)
-        }
+        await sut.fetchPlaces()
+
+        XCTAssertEqual(mockPresenter.failureError as? PlacesError, .noResult)
     }
 
-    func test_getPlaces_whenFetchSuccess_shouldReturnExpected() async throws {
+    func test_fetchPlaces_whenSuccess_shouldReturnExpected() async throws {
         let expectedPlaces: [Place] = .stub
-        mockPlacesRepository.places = expectedPlaces
+        mockRepository.places = expectedPlaces
 
-        let resultedPlaces = try await sut.getPlaces()
+        await sut.fetchPlaces()
 
-        XCTAssertEqual(resultedPlaces, expectedPlaces)
+        XCTAssertEqual(mockPresenter.updatedPlaces, expectedPlaces)
     }
 }

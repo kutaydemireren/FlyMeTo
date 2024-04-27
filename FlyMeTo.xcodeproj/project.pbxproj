@@ -53,6 +53,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA8EB78F2BDD861C00A41A95 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CAB0EAD22BDD80FA00FD0367 /* ContentView.swift */,
+				CAB0EAD02BDD80FA00FD0367 /* FlyMeToApp.swift */,
+				CAB0EAD62BDD80FD00FD0367 /* Preview Content */,
+				CA8EB7902BDD864700A41A95 /* Resources */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		CA8EB7902BDD864700A41A95 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CAB0EAD42BDD80FD00FD0367 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		CAB0EAC42BDD80FA00FD0367 = {
 			isa = PBXGroup;
 			children = (
@@ -75,10 +94,7 @@
 		CAB0EACF2BDD80FA00FD0367 /* FlyMeTo */ = {
 			isa = PBXGroup;
 			children = (
-				CAB0EAD02BDD80FA00FD0367 /* FlyMeToApp.swift */,
-				CAB0EAD22BDD80FA00FD0367 /* ContentView.swift */,
-				CAB0EAD42BDD80FD00FD0367 /* Assets.xcassets */,
-				CAB0EAD62BDD80FD00FD0367 /* Preview Content */,
+				CA8EB78F2BDD861C00A41A95 /* iOS */,
 			);
 			path = FlyMeTo;
 			sourceTree = "<group>";
@@ -349,7 +365,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"FlyMeTo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"FlyMeTo/iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = 4VYX3TZ9R9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -378,7 +394,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"FlyMeTo/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"FlyMeTo/iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = 4VYX3TZ9R9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;

@@ -7,11 +7,47 @@
 
 import XCTest
 
-struct Place {
+struct Place: Equatable {
     let name: String
     let lat: Double
     let long: Double
 }
+
+//
+
+extension Place {
+    static var kyoto: Self {
+        return Place(
+            name: "Kyoto",
+            lat: 35.011665,
+            long: 135.768326
+        )
+    }
+
+    static var chicago: Self {
+        return Place(
+            name: "Chicago",
+            lat: 41.881832,
+            long: -87.623177
+        )
+    }
+
+    static var istanbul: Self {
+        return Place(
+            name: "Istanbul",
+            lat: 41.015137,
+            long: 28.979530
+        )
+    }
+}
+
+extension Array where Element == Place {
+    static var stub: Self {
+        return [.kyoto, .chicago, .istanbul]
+    }
+}
+
+//
 
 protocol PlacesRepository {
     func fetchPlaces() async throws -> [Place]
@@ -99,5 +135,14 @@ final class PlacesInteractorImpTests: XCTestCase {
         } catch {
             XCTAssertEqual(error as? PlacesError, .noResult)
         }
+    }
+
+    func test_getPlaces_whenFetchSuccess_shouldReturnExpected() async throws {
+        let expectedPlaces: [Place] = .stub
+        mockPlacesRepository.places = expectedPlaces
+
+        let resultedPlaces = try await sut.getPlaces()
+
+        XCTAssertEqual(resultedPlaces, expectedPlaces)
     }
 }

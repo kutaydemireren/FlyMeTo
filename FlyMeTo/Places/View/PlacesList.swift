@@ -22,7 +22,7 @@ struct PlacesList: View {
                     Text("Longitude: \(place.long)")
                         .font(.caption)
                 }
-                .listRowBackground(Color.green.opacity(0.3))
+                .listRowBackground(Color(red: 230/255.0, green: 170/255.0, blue: 39/255.0, opacity: 0.6))
             }
         }
         .listRowSpacing(16)

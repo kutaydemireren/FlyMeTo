@@ -15,11 +15,22 @@ struct PlacesView: View {
     @StateObject var viewModel = PlacesViewModel()
 
     var body: some View {
-        PlacesList(places: $viewModel.places)
+        ZStack {
+            backgroundView
+
+            PlacesList(places: $viewModel.places)
+                .scrollContentBackground(.hidden)
+        }
+    }
+
+    private var backgroundView: some View {
+        Rectangle()
+            .fill(Color(red: 49/255, green: 144/255, blue: 130/255, opacity: 1.0))
+            .ignoresSafeArea()
     }
 }
 
 #Preview("Places") {
-    PlacesView()
+    PlacesView(viewModel: PlacesViewModel(places: .stub))
 }
 

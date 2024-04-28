@@ -7,30 +7,86 @@
 
 import Foundation
 
-enum PlacesError: Error {
-    case noResult
+//
+
+var fetchCount = 0 // TODO: Remove
+
+struct PlacesRepositoryTemp: PlacesRepository {
+    func fetchPlaces() async throws -> [Place] {
+        try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
+        fetchCount += 1
+        guard fetchCount % 2 == 0 else  {
+            throw PlacesError.noResult 
+        }
+        return .stub
+    }
 }
 
-protocol PlacesInteractor {
+//
+
+enum PlacesError: LocalizedError {
+    case unknown
+    case underlying(Error)
+    case noResult
+
+    var errorDescription: String? {
+        switch self {
+        case .unknown:
+            return "Something went wrong!"
+        case .underlying(let error):
+            return error.localizedDescription
+        case .noResult:
+            return "No results have been found."
+        }
+    }
+
+    var failureReason: String? {
+        switch self {
+        case .unknown:
+            return "Failure reason is unknown."
+        case .underlying(let error):
+            return (error as? LocalizedError)?.failureReason
+        case .noResult:
+            return "Received an empty result."
+        }
+    }
+
+    var recoverySuggestion: String? {
+        switch self {
+        case .unknown:
+            return "Please try again."
+        case .underlying(let error):
+            return (error as? LocalizedError)?.recoverySuggestion
+        case .noResult:
+            return "Please make sure places are remotely available and retry again."
+        }
+    }
+}
+
+//
+
+protocol PlacesInteractor: AnyObject {
+    var presenter: PlacesPresenter? { get set }
+
     /// Tries to fetch and present an ordered list of `Place`s, ow/ presents failure
     func fetchPlaces() async
 }
 
-struct PlacesInteractorImp: PlacesInteractor {
-    let repository: PlacesRepository
+final class PlacesInteractorImp: PlacesInteractor {
+    let repository: PlacesRepository = PlacesRepositoryTemp()
 
-    weak var placesPresenter: PlacesPresenter?
+    weak var presenter: PlacesPresenter?
 
     func fetchPlaces() async {
         do {
             let places = try await repository.fetchPlaces()
             guard !places.isEmpty else {
-                placesPresenter?.failure(error: PlacesError.noResult)
+                await presenter?.failure(error: PlacesError.noResult)
                 return
             }
-            placesPresenter?.update(places: places)
+            await presenter?.update(places: places)
         } catch {
-            placesPresenter?.failure(error: error)
+            await presenter?.failure(error: .underlying(error))
         }
     }
 }

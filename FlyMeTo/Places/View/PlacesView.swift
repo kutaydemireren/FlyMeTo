@@ -7,8 +7,38 @@
 
 import SwiftUI
 
-final class PlacesViewModel: ObservableObject {
-    @Published var places: [Place] = .stub
+@MainActor
+final class PlacesViewModel: ObservableObject, PlacesPresenter {
+    @Published var places: [Place]
+    @Published var errorAlertPresented: Bool = false
+    var error: PlacesError?
+
+    let interactor: PlacesInteractor
+
+    init(
+        places: [Place] = [],
+        interactor: PlacesInteractor = PlacesInteractorImp()
+    ) {
+        self.places = places
+        self.interactor = interactor
+        self.interactor.presenter = self
+        refreshPlaces()
+    }
+
+    func refreshPlaces() {
+        Task {
+            await interactor.fetchPlaces()
+        }
+    }
+
+    func update(places: [Place]) async {
+        self.places = places
+    }
+
+    func failure(error: PlacesError) async {
+        self.error = error
+        errorAlertPresented = true
+    }
 }
 
 struct PlacesView: View {
@@ -20,6 +50,11 @@ struct PlacesView: View {
 
             PlacesList(places: $viewModel.places)
                 .scrollContentBackground(.hidden)
+        }
+        .alert(isPresented: $viewModel.errorAlertPresented, error: viewModel.error) {
+            Button("Retry") {
+                viewModel.refreshPlaces()
+            }
         }
     }
 

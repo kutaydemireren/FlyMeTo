@@ -8,6 +8,6 @@
 import Foundation
 
 protocol PlacesPresenter: AnyObject {
-    func failure(error: Error)
-    func update(places: [Place])
+    func failure(error: PlacesError) async
+    func update(places: [Place]) async
 }

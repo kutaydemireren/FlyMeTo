@@ -8,14 +8,14 @@
 import Foundation
 @testable import FlyMeTo
 
-final class MockPlacesPresenter: PlacesPresenter {
+final class MockPlacesPresenter: PlacesPresenter {    
     var updatedPlaces: [Place] = []
     func update(places: [Place]) {
         updatedPlaces = places
     }
 
-    var failureError: Error?
-    func failure(error: Error) {
+    var failureError: PlacesError?
+    func failure(error: PlacesError) {
         failureError = error
     }
 }

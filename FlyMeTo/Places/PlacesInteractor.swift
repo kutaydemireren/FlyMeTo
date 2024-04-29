@@ -24,7 +24,7 @@ struct PlacesRepositoryTemp: PlacesRepository {
 
 //
 
-enum PlacesError: LocalizedError {
+enum PlacesError: LocalizedError, Equatable {
     case unknown
     case underlying(Error)
     case noResult
@@ -61,6 +61,10 @@ enum PlacesError: LocalizedError {
             return "Please make sure places are remotely available and retry again."
         }
     }
+
+    static func == (lhs: PlacesError, rhs: PlacesError) -> Bool {
+        return (lhs as NSError) == (rhs as NSError)
+    }
 }
 
 //
@@ -73,9 +77,15 @@ protocol PlacesInteractor: AnyObject {
 }
 
 final class PlacesInteractorImp: PlacesInteractor {
-    let repository: PlacesRepository = PlacesRepositoryTemp()
+    var repository: PlacesRepository
 
     weak var presenter: PlacesPresenter?
+
+    init(
+        repository: PlacesRepository = PlacesRepositoryTemp()
+    ) {
+        self.repository = repository
+    }
 
     func fetchPlaces() async {
         do {

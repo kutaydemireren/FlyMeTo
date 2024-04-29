@@ -16,7 +16,8 @@ final class PlacesInteractorImpTests: XCTestCase {
     override func setUpWithError() throws {
         mockRepository = MockPlacesRepository()
         mockPresenter = MockPlacesPresenter()
-        sut = PlacesInteractorImp(repository: mockRepository, placesPresenter: mockPresenter)
+        sut = PlacesInteractorImp(repository: mockRepository)
+        sut.presenter = mockPresenter
     }
 
     override func tearDownWithError() throws {
@@ -28,7 +29,7 @@ final class PlacesInteractorImpTests: XCTestCase {
 
         await sut.fetchPlaces()
 
-        XCTAssertEqual(mockPresenter.failureError as? TestError, .notAllowed)
+        XCTAssertEqual(mockPresenter.failureError, .underlying(TestError.notAllowed))
     }
 
     func test_fetchPlaces_whenEmpty_shouldThrowNoResult() async {
@@ -36,7 +37,7 @@ final class PlacesInteractorImpTests: XCTestCase {
 
         await sut.fetchPlaces()
 
-        XCTAssertEqual(mockPresenter.failureError as? PlacesError, .noResult)
+        XCTAssertEqual(mockPresenter.failureError, .noResult)
     }
 
     func test_fetchPlaces_whenSuccess_shouldReturnExpected() async throws {

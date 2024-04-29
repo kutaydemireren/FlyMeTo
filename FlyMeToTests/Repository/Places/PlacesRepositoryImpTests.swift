@@ -8,42 +8,6 @@
 import XCTest
 @testable import FlyMeTo
 
-// TODO: Move
-
-func loadPlacesJSONData() -> Data {
-    let bundle = Bundle(for: PlacesRepositoryImpTests.self)
-    guard let filePath = bundle.path(forResource: "places", ofType: "json") else {
-        fatalError("places.json not found!")
-    }
-
-    let data = try! Data(contentsOf: URL(filePath: filePath))
-    return data
-}
-
-//
-
-final class MockNetworkManager: NetworkManager {
-    var error: Error?
-    var data: Data = Data()
-
-    func perform(_ request: Request) async throws -> Data {
-        return try throwError(error, orReturnValue: data)
-    }
-}
-
-//
-
-final class MockDecoding: Decoding {
-    var error: Error?
-    var decoded: Decodable?
-
-    func decode<T: Decodable>(_ type: T.Type, from data: Data) throws -> T {
-        return try throwError(error, orReturnValue: decoded as? T)
-    }
-}
-
-//
-
 final class PlacesRepositoryImpTests: XCTestCase {
     var sut: PlacesRepositoryImp!
     var mockNetworkManager: MockNetworkManager!

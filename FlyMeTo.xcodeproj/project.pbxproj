@@ -13,6 +13,11 @@
 		CA20A4472BDFABF000C651CD /* GetPlacesUseCaseImpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4462BDFABF000C651CD /* GetPlacesUseCaseImpTests.swift */; };
 		CA20A4492BDFB18400C651CD /* GetPlacesUseCaseImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4482BDFB18400C651CD /* GetPlacesUseCaseImp.swift */; };
 		CA20A44B2BDFB26C00C651CD /* MockGetPlacesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A44A2BDFB26C00C651CD /* MockGetPlacesUseCase.swift */; };
+		CA20A44D2BDFB6C200C651CD /* Decoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A44C2BDFB6C200C651CD /* Decoding.swift */; };
+		CA20A44F2BDFB6E800C651CD /* NetworkManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A44E2BDFB6E800C651CD /* NetworkManagerImp.swift */; };
+		CA20A4562BDFB78F00C651CD /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4552BDFB78F00C651CD /* Request.swift */; };
+		CA20A4582BDFB7A000C651CD /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4572BDFB7A000C651CD /* NetworkError.swift */; };
+		CA20A45A2BDFB88800C651CD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4592BDFB88800C651CD /* NetworkManager.swift */; };
 		CA54FBB82BDD9B3100E02F31 /* PlacesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */; };
 		CA54FBBA2BDD9B6400E02F31 /* PlacesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */; };
 		CA54FBBC2BDD9B9A00E02F31 /* PlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */; };
@@ -47,6 +52,11 @@
 		CA20A4462BDFABF000C651CD /* GetPlacesUseCaseImpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesUseCaseImpTests.swift; sourceTree = "<group>"; };
 		CA20A4482BDFB18400C651CD /* GetPlacesUseCaseImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesUseCaseImp.swift; sourceTree = "<group>"; };
 		CA20A44A2BDFB26C00C651CD /* MockGetPlacesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetPlacesUseCase.swift; sourceTree = "<group>"; };
+		CA20A44C2BDFB6C200C651CD /* Decoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoding.swift; sourceTree = "<group>"; };
+		CA20A44E2BDFB6E800C651CD /* NetworkManagerImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerImp.swift; sourceTree = "<group>"; };
+		CA20A4552BDFB78F00C651CD /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		CA20A4572BDFB7A000C651CD /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		CA20A4592BDFB88800C651CD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesInteractor.swift; sourceTree = "<group>"; };
 		CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesPresenter.swift; sourceTree = "<group>"; };
 		CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesRepository.swift; sourceTree = "<group>"; };
@@ -86,20 +96,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CA20A43F2BDFAA3E00C651CD /* Repositories */ = {
+		CA20A43F2BDFAA3E00C651CD /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				CA20A4402BDFAA5700C651CD /* Places */,
+				CA20A45C2BDFB8DC00C651CD /* Shared */,
+				CA20A45B2BDFB8C700C651CD /* Places */,
 			);
-			path = Repositories;
-			sourceTree = "<group>";
-		};
-		CA20A4402BDFAA5700C651CD /* Places */ = {
-			isa = PBXGroup;
-			children = (
-				CA20A4412BDFAA6800C651CD /* PlacesRepositoryImp.swift */,
-			);
-			path = Places;
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		CA20A4432BDFAA8D00C651CD /* Use Cases */ = {
@@ -109,6 +112,33 @@
 				CA20A4482BDFB18400C651CD /* GetPlacesUseCaseImp.swift */,
 			);
 			path = "Use Cases";
+			sourceTree = "<group>";
+		};
+		CA20A4502BDFB71400C651CD /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CA20A44E2BDFB6E800C651CD /* NetworkManagerImp.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		CA20A45B2BDFB8C700C651CD /* Places */ = {
+			isa = PBXGroup;
+			children = (
+				CA20A4412BDFAA6800C651CD /* PlacesRepositoryImp.swift */,
+			);
+			path = Places;
+			sourceTree = "<group>";
+		};
+		CA20A45C2BDFB8DC00C651CD /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CA20A4572BDFB7A000C651CD /* NetworkError.swift */,
+				CA20A4552BDFB78F00C651CD /* Request.swift */,
+				CA20A44C2BDFB6C200C651CD /* Decoding.swift */,
+				CA20A4592BDFB88800C651CD /* NetworkManager.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		CA54FBB62BDD9B2300E02F31 /* Places */ = {
@@ -210,7 +240,8 @@
 		CAB0EACF2BDD80FA00FD0367 /* FlyMeTo */ = {
 			isa = PBXGroup;
 			children = (
-				CA20A43F2BDFAA3E00C651CD /* Repositories */,
+				CA20A4502BDFB71400C651CD /* Network */,
+				CA20A43F2BDFAA3E00C651CD /* Repository */,
 				CA54FBBD2BDD9BBB00E02F31 /* Entities */,
 				CA54FBB62BDD9B2300E02F31 /* Places */,
 				CA8EB78F2BDD861C00A41A95 /* iOS */,
@@ -338,17 +369,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA20A45A2BDFB88800C651CD /* NetworkManager.swift in Sources */,
+				CA20A4582BDFB7A000C651CD /* NetworkError.swift in Sources */,
 				CA54FBC12BDD9C1E00E02F31 /* Place+Stubs.swift in Sources */,
+				CA20A4562BDFB78F00C651CD /* Request.swift in Sources */,
 				CA20A4492BDFB18400C651CD /* GetPlacesUseCaseImp.swift in Sources */,
 				CA54FBB82BDD9B3100E02F31 /* PlacesInteractor.swift in Sources */,
 				CA20A43E2BDFAA2200C651CD /* PlacesError.swift in Sources */,
 				CA20A4422BDFAA6800C651CD /* PlacesRepositoryImp.swift in Sources */,
 				CAB0EAD32BDD80FA00FD0367 /* ContentView.swift in Sources */,
+				CA20A44D2BDFB6C200C651CD /* Decoding.swift in Sources */,
 				CA54FBBA2BDD9B6400E02F31 /* PlacesPresenter.swift in Sources */,
 				CA54FBBF2BDD9BC700E02F31 /* Place.swift in Sources */,
 				CA54FBBC2BDD9B9A00E02F31 /* PlacesRepository.swift in Sources */,
 				CA54FBD22BDDABB700E02F31 /* PlacesList.swift in Sources */,
 				CA54FBCF2BDDA7A700E02F31 /* PlacesView.swift in Sources */,
+				CA20A44F2BDFB6E800C651CD /* NetworkManagerImp.swift in Sources */,
 				CA20A4452BDFAA9F00C651CD /* PreferredDestinationUseCase.swift in Sources */,
 				CAB0EAD12BDD80FA00FD0367 /* FlyMeToApp.swift in Sources */,
 			);

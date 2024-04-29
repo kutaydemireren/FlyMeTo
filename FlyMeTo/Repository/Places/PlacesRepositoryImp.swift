@@ -21,4 +21,3 @@ struct PlacesRepositoryTemp: PlacesRepository {
         return .stub
     }
 }
-

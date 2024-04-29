@@ -113,7 +113,7 @@ struct PlacesView: View {
 
     private var backgroundView: some View {
         Rectangle()
-            .fill(Color(red: 49/255, green: 144/255, blue: 130/255, opacity: 1.0))
+            .fill(Color.backgroundPrimary)
             .ignoresSafeArea()
     }
 }

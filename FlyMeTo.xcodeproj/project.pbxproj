@@ -32,6 +32,7 @@
 		CA20A4792BE0321A00C651CD /* Double+Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4782BE0321A00C651CD /* Double+Stubs.swift */; };
 		CA20A47B2BE0323C00C651CD /* VerifyLocationUseCaseImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A47A2BE0323C00C651CD /* VerifyLocationUseCaseImp.swift */; };
 		CA20A47D2BE0378600C651CD /* View+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A47C2BE0378600C651CD /* View+Keyboard.swift */; };
+		CA20A47F2BE03A0F00C651CD /* Color+UserDefined.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A47E2BE03A0F00C651CD /* Color+UserDefined.swift */; };
 		CA54FBB82BDD9B3100E02F31 /* PlacesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */; };
 		CA54FBBA2BDD9B6400E02F31 /* PlacesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */; };
 		CA54FBBC2BDD9B9A00E02F31 /* PlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */; };
@@ -85,6 +86,7 @@
 		CA20A4782BE0321A00C651CD /* Double+Stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Stubs.swift"; sourceTree = "<group>"; };
 		CA20A47A2BE0323C00C651CD /* VerifyLocationUseCaseImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyLocationUseCaseImp.swift; sourceTree = "<group>"; };
 		CA20A47C2BE0378600C651CD /* View+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Keyboard.swift"; sourceTree = "<group>"; };
+		CA20A47E2BE03A0F00C651CD /* Color+UserDefined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+UserDefined.swift"; sourceTree = "<group>"; };
 		CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesInteractor.swift; sourceTree = "<group>"; };
 		CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesPresenter.swift; sourceTree = "<group>"; };
 		CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesRepository.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			children = (
 				CA20A46F2BE019BB00C651CD /* TitledTextField.swift */,
 				CA20A47C2BE0378600C651CD /* View+Keyboard.swift */,
+				CA20A47E2BE03A0F00C651CD /* Color+UserDefined.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				CA20A4422BDFAA6800C651CD /* PlacesRepositoryImp.swift in Sources */,
 				CAB0EAD32BDD80FA00FD0367 /* ContentView.swift in Sources */,
 				CA20A44D2BDFB6C200C651CD /* Decoding.swift in Sources */,
+				CA20A47F2BE03A0F00C651CD /* Color+UserDefined.swift in Sources */,
 				CA54FBBA2BDD9B6400E02F31 /* PlacesPresenter.swift in Sources */,
 				CA54FBBF2BDD9BC700E02F31 /* Place.swift in Sources */,
 				CA54FBBC2BDD9B9A00E02F31 /* PlacesRepository.swift in Sources */,

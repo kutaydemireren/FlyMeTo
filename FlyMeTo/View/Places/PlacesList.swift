@@ -60,10 +60,5 @@ struct PlacesList<Supplement: View>: View {
 #Preview("Places List") {
     PlacesList(places: .constant(.stub))
         .scrollContentBackground(.hidden)
-        .background {
-            Color(red: 49/255, green: 144/255, blue: 130/255, opacity: 1.0)
-        }
+        .background(Color.backgroundPrimary)
 }
-
-
-//latitude: .constant("12.34"), longitude: .constant("-83.23")

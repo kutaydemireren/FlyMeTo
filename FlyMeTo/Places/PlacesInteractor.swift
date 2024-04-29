@@ -74,6 +74,7 @@ protocol PlacesInteractor: AnyObject {
 
     /// Tries to fetch and present an ordered list of `Place`s, ow/ presents failure
     func fetchPlaces() async
+    func select(location: PlaceLocation) async
 }
 
 final class PlacesInteractorImp: PlacesInteractor {
@@ -98,5 +99,9 @@ final class PlacesInteractorImp: PlacesInteractor {
         } catch {
             await presenter?.failure(error: .underlying(error))
         }
+    }
+
+    func select(location: PlaceLocation) async { // TODO: missing implementation
+        fatalError("missing implementation")
     }
 }

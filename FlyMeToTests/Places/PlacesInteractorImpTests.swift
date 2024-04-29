@@ -23,7 +23,10 @@ final class PlacesInteractorImpTests: XCTestCase {
     override func tearDownWithError() throws {
         sut = nil
     }
+}
 
+// MARK: fetchPlaces
+extension PlacesInteractorImpTests {
     func test_fetchPlaces_whenRepositoryThrowsError_shouldThrowSameError() async {
         mockRepository.error = .notAllowed
 
@@ -49,3 +52,6 @@ final class PlacesInteractorImpTests: XCTestCase {
         XCTAssertEqual(mockPresenter.updatedPlaces, expectedPlaces)
     }
 }
+
+// MARK: selectLocation
+// TODO: missing coverage

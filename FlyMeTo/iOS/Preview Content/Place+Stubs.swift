@@ -11,24 +11,30 @@ extension Place {
     static var kyoto: Self {
         return Place(
             name: "Kyoto",
-            lat: 35.011665,
-            long: 135.768326
+            location: PlaceLocation(
+                lat: 35.011665,
+                long: 135.768326
+            )
         )
     }
 
     static var chicago: Self {
         return Place(
             name: "Chicago",
-            lat: 41.881832,
-            long: -87.623177
+            location: PlaceLocation(
+                lat: 41.881832,
+                long: -87.623177
+            )
         )
     }
 
     static var istanbul: Self {
         return Place(
             name: "Istanbul",
-            lat: 41.015137,
-            long: 28.979530
+            location: PlaceLocation(
+                lat: 41.015137,
+                long: 28.979530
+            )
         )
     }
 }

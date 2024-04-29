@@ -17,9 +17,9 @@ struct PlacesList: View {
                     Text(place.name)
                         .font(.footnote)
                         .bold()
-                    Text("Latitude: \(place.lat)")
+                    Text("Latitude: \(place.location.lat)")
                         .font(.caption)
-                    Text("Longitude: \(place.long)")
+                    Text("Longitude: \(place.location.long)")
                         .font(.caption)
                 }
                 .listRowBackground(Color(red: 230/255.0, green: 170/255.0, blue: 39/255.0, opacity: 0.6))

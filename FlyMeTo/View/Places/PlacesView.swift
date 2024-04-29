@@ -87,6 +87,7 @@ struct PlacesView: View {
             places: $viewModel.places,
             supplement: {
                 CustomPlaceView(
+                    title: "Or, you can try flying yourself:",
                     latitude: $viewModel.latitude,
                     longitude: $viewModel.longitude
                 )

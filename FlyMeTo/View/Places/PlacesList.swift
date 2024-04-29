@@ -7,50 +7,6 @@
 
 import SwiftUI
 
-struct CustomPlaceView: View {
-    @Binding var latitude: String
-    @Binding var longitude: String
-
-    var body: some View {
-        VStack {
-            Text("Or, you can try flying yourself:")
-                .font(.callout)
-
-            VStack {
-                HStack {
-                    Text("Latitude")
-                        .font(.callout)
-                        .lineLimit(1)
-                        .frame(width: 100)
-
-                    TextField("", text: $latitude)
-                        .multilineTextAlignment(.center)
-                        .padding(8)
-                        .border(Color(red: 230/255.0, green: 170/255.0, blue: 39/255.0, opacity: 0.6))
-                }
-
-                HStack {
-                    Text("Longitude")
-                        .font(.callout)
-                        .lineLimit(1)
-                        .frame(width: 100)
-
-                    TextField("", text: $longitude)
-                        .multilineTextAlignment(.center)
-                        .padding(8)
-                        .border(Color(red: 230/255.0, green: 170/255.0, blue: 39/255.0, opacity: 0.6))
-                }
-            }
-
-            Button("Fly me!") {
-                // TODO: send?
-            }
-        }
-        .frame(maxWidth: .infinity)
-        .listRowBackground(Color.clear)
-    }
-}
-
 struct PlacesList<Supplement: View>: View {
     @Binding var places: [Place]
     @ViewBuilder var supplement: Supplement

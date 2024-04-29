@@ -187,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				CA20A4432BDFAA8D00C651CD /* Use Cases */,
-				CA54FBD02BDDABA600E02F31 /* View */,
 				CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */,
 				CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */,
 				CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */,
@@ -288,6 +287,7 @@
 				CA54FBBD2BDD9BBB00E02F31 /* Entities */,
 				CA54FBB62BDD9B2300E02F31 /* Places */,
 				CA8EB78F2BDD861C00A41A95 /* iOS */,
+				CA54FBD02BDDABA600E02F31 /* View */,
 			);
 			path = FlyMeTo;
 			sourceTree = "<group>";

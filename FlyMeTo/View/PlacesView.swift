@@ -61,9 +61,12 @@ struct PlacesView: View {
 
             PlacesList(
                 places: $viewModel.places,
+                latitude: .constant(""), // TODO: missing
+                longitude: .constant(""), // TODO: missing
                 onTap: { viewModel.select(place:$0) }
             )
             .scrollContentBackground(.hidden)
+
         }
         .alert(isPresented: $viewModel.errorAlertPresented, error: viewModel.error) {
             Button("Retry") {

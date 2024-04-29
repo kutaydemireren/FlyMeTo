@@ -8,36 +8,6 @@
 import XCTest
 @testable import FlyMeTo
 
-// TODO: move
-
-struct VerifyLocationUseCaseImp {
-    func verify(_ location: PlaceLocation) throws -> Bool {
-        let lat = location.lat
-        guard .lowestPossibleLatitude <= lat && lat <= .highestPossibleLatitude else {
-            throw PlacesError.latitudeInvalid(location)
-        }
-
-        let long = location.long
-        guard .lowestPossibleLongitude <= long && long <= .highestPossibleLongitude else {
-            throw PlacesError.longitudeInvalid(location)
-        }
-
-        return true
-    }
-}
-
-//
-
-
-extension Double {
-    static let invalidLatitude: Self = 181
-    static let validLatitude: Self = -180
-    static let invalidLongitude: Self = -91
-    static let validLongitude: Self = 90
-}
-
-//
-
 final class VerifyLocationUseCaseImpTests: XCTestCase {
     var sut: VerifyLocationUseCaseImp!
 

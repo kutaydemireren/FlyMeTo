@@ -11,7 +11,7 @@ import XCTest
 // TODO: move
 
 struct VerifyLocationUseCaseImp {
-    func verify(_ location: PlaceLocation) throws {
+    func verify(_ location: PlaceLocation) throws -> Bool {
         let lat = location.lat
         guard .lowestPossibleLatitude <= lat && lat <= .highestPossibleLatitude else {
             throw PlacesError.latitudeInvalid(location)
@@ -22,7 +22,7 @@ struct VerifyLocationUseCaseImp {
             throw PlacesError.longitudeInvalid(location)
         }
 
-        throw TestError.notAllowed
+        return true
     }
 }
 
@@ -52,7 +52,7 @@ final class VerifyLocationUseCaseImpTests: XCTestCase {
     func test_verify_whenLatitudeInvalid_shouldThrowExpectedError() async {
         let location = PlaceLocation(lat: .invalidLatitude, long: .invalidLongitude)
         do {
-            try sut.verify(location)
+            let _ = try sut.verify(location)
             XCTFail("Expected error to be thrown.")
         } catch {
             XCTAssertEqual(error as? PlacesError, .latitudeInvalid(location))
@@ -62,10 +62,18 @@ final class VerifyLocationUseCaseImpTests: XCTestCase {
     func test_verify_whenLongitudeInvalid_shouldThrowExpectedError() async {
         let location = PlaceLocation(lat: .validLatitude, long: .invalidLongitude)
         do {
-            try sut.verify(location)
+            let _ = try sut.verify(location)
             XCTFail("Expected error to be thrown.")
         } catch {
             XCTAssertEqual(error as? PlacesError, .longitudeInvalid(location))
         }
+    }
+
+    func test_verify_whenBothValid_shouldReturnTrue() async {
+        let location = PlaceLocation(lat: .validLatitude, long: .validLongitude)
+
+        let resultedBool = try! sut.verify(location)
+
+        XCTAssertTrue(resultedBool)
     }
 }

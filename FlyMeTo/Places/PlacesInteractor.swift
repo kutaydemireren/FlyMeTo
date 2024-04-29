@@ -19,15 +19,18 @@ protocol PlacesInteractor: AnyObject {
 final class PlacesInteractorImp: PlacesInteractor {
     let getPlaces: GetPlacesUseCase
     let preferredDestination: PreferredDestinationUseCase
+    let verifyLocation: VerifyLocationUseCase
 
     weak var presenter: PlacesPresenter?
 
     init(
         getPlaces: GetPlacesUseCase = GetPlacesUseCaseImp(),
-        preferredDestination: PreferredDestinationUseCase = PreferredDestinationUseCaseImp()
+        preferredDestination: PreferredDestinationUseCase = PreferredDestinationUseCaseImp(),
+        verifyLocation: VerifyLocationUseCase = VerifyLocationUseCaseImp()
     ) {
         self.getPlaces = getPlaces
         self.preferredDestination = preferredDestination
+        self.verifyLocation = verifyLocation
     }
 
     func fetchPlaces() async {
@@ -35,20 +38,38 @@ final class PlacesInteractorImp: PlacesInteractor {
             let places = try await getPlaces.fetch()
             await presenter?.update(places: places)
         } catch {
-            await presenter?.failure(error: (error as? PlacesError) ?? .underlying(error))
+            await failure(with: error)
         }
     }
 
     func select(place: Place) async {
-        let preferredDestination = preferredDestination.get()
-        var components = URLComponents(string: "\(preferredDestination.rawValue)")
+        do {
+            guard try verifyLocation.verify(place.location) else {
+                await failure(with: PlacesError.unknown)
+                return
+            }
 
-        components?.query = "loc=\(place.location.lat),\(place.location.long)"
+            let preferredDestination = preferredDestination.get()
+            let components = createURLComponents(for: place.location, to: preferredDestination)
 
-        await presenter?.redirect(
-            Redirection(
-                url: components?.url
+            await presenter?.redirect(
+                Redirection(
+                    url: components?.url
+                )
             )
-        )
+        } catch {
+            await failure(with: error)
+        }
+    }
+
+    private func createURLComponents(for location: PlaceLocation, to destination: Redirection.Destination) -> URLComponents? {
+        var components = URLComponents(string: "\(destination.rawValue)")
+        components?.query = "loc=\(location.lat),\(location.long)"
+
+        return components
+    }
+
+    private func failure(with error: Error) async {
+        await presenter?.failure(error: (error as? PlacesError) ?? .underlying(error))
     }
 }

@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct VerifyLocationUseCaseImp {
+protocol VerifyLocationUseCase {
+    func verify(_ location: PlaceLocation) throws -> Bool
+}
+
+struct VerifyLocationUseCaseImp: VerifyLocationUseCase {
     func verify(_ location: PlaceLocation) throws -> Bool {
         let lat = location.lat
         guard .lowestPossibleLatitude <= lat && lat <= .highestPossibleLatitude else {

@@ -11,7 +11,3 @@ enum NetworkError: Error {
     case unexpectedURL
     case unexpectedServerResponse
 }
-
-enum RepositoryError: Error {
-    case decodingFailed
-}

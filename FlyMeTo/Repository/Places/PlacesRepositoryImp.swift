@@ -21,8 +21,8 @@ struct PlacesResponse: Decodable {
 //
 
 struct PlacesRepositoryImp: PlacesRepository {
-    let networkManager: NetworkManager
-    let decoding: Decoding
+    private let networkManager: NetworkManager
+    private let decoding: Decoding
 
     init(
         networkManager: NetworkManager = NetworkManagerImp(),
@@ -34,7 +34,7 @@ struct PlacesRepositoryImp: PlacesRepository {
 
     func fetchPlaces() async throws -> [Place] {
         let data = try await networkManager.perform(GetPlacesRequest())
-        let response = try! decoding.decode(PlacesResponse.self, from: data)
+        let response = try decoding.decode(PlacesResponse.self, from: data)
         return response.locations
     }
 }

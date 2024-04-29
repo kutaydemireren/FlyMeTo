@@ -18,6 +18,8 @@
 		CA20A4562BDFB78F00C651CD /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4552BDFB78F00C651CD /* Request.swift */; };
 		CA20A4582BDFB7A000C651CD /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4572BDFB7A000C651CD /* Errors.swift */; };
 		CA20A45A2BDFB88800C651CD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4592BDFB88800C651CD /* NetworkManager.swift */; };
+		CA20A4602BDFE39E00C651CD /* PlacesRepositoryImpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A45F2BDFE39E00C651CD /* PlacesRepositoryImpTests.swift */; };
+		CA20A4622BDFEA0200C651CD /* places.json in Resources */ = {isa = PBXBuildFile; fileRef = CA20A4612BDFEA0200C651CD /* places.json */; };
 		CA54FBB82BDD9B3100E02F31 /* PlacesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */; };
 		CA54FBBA2BDD9B6400E02F31 /* PlacesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */; };
 		CA54FBBC2BDD9B9A00E02F31 /* PlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */; };
@@ -57,6 +59,8 @@
 		CA20A4552BDFB78F00C651CD /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		CA20A4572BDFB7A000C651CD /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		CA20A4592BDFB88800C651CD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		CA20A45F2BDFE39E00C651CD /* PlacesRepositoryImpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesRepositoryImpTests.swift; sourceTree = "<group>"; };
+		CA20A4612BDFEA0200C651CD /* places.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = places.json; sourceTree = "<group>"; };
 		CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesInteractor.swift; sourceTree = "<group>"; };
 		CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesPresenter.swift; sourceTree = "<group>"; };
 		CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesRepository.swift; sourceTree = "<group>"; };
@@ -139,6 +143,22 @@
 				CA20A4592BDFB88800C651CD /* NetworkManager.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		CA20A45D2BDFE38900C651CD /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				CA20A45E2BDFE39100C651CD /* Places */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		CA20A45E2BDFE39100C651CD /* Places */ = {
+			isa = PBXGroup;
+			children = (
+				CA20A45F2BDFE39E00C651CD /* PlacesRepositoryImpTests.swift */,
+			);
+			path = Places;
 			sourceTree = "<group>";
 		};
 		CA54FBB62BDD9B2300E02F31 /* Places */ = {
@@ -261,9 +281,11 @@
 		CAB0EAE02BDD80FD00FD0367 /* FlyMeToTests */ = {
 			isa = PBXGroup;
 			children = (
+				CA20A45D2BDFE38900C651CD /* Repository */,
 				CA8EB7952BDD873800A41A95 /* FlyMeToTests-Bridging-Header.h */,
 				CA8EB7942BDD872300A41A95 /* Places */,
 				CA54FBC52BDD9CAF00E02F31 /* Utils */,
+				CA20A4612BDFEA0200C651CD /* places.json */,
 			);
 			path = FlyMeToTests;
 			sourceTree = "<group>";
@@ -359,6 +381,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA20A4622BDFEA0200C651CD /* places.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +422,7 @@
 				CA54FBC72BDD9CC200E02F31 /* TestError.swift in Sources */,
 				CA54FBC42BDD9C8300E02F31 /* MockPlacesPresenter.swift in Sources */,
 				CA8EB7992BDD876A00A41A95 /* PlacesInteractorImpTests.swift in Sources */,
+				CA20A4602BDFE39E00C651CD /* PlacesRepositoryImpTests.swift in Sources */,
 				CA54FBC92BDD9D1D00E02F31 /* MockPlacesRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

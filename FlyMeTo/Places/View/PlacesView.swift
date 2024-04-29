@@ -63,7 +63,7 @@ struct PlacesView: View {
                 places: $viewModel.places,
                 onTap: { viewModel.select(place:$0) }
             )
-                .scrollContentBackground(.hidden)
+            .scrollContentBackground(.hidden)
         }
         .alert(isPresented: $viewModel.errorAlertPresented, error: viewModel.error) {
             Button("Retry") {

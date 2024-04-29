@@ -105,7 +105,7 @@ final class PlacesInteractorImp: PlacesInteractor {
         }
     }
 
-    func select(place: Place) async { // TODO: missing implementation
+    func select(place: Place) async {
         let preferredDestination = preferredDestinationUseCase.get()
         var components = URLComponents(string: "\(preferredDestination.rawValue)")
 

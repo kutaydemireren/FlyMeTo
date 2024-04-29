@@ -15,15 +15,20 @@ struct PlacesList: View {
     var body: some View {
         List {
             ForEach(places) { place in
-                VStack(alignment: .leading) {
-                    Text(place.name)
-                        .font(.footnote)
-                        .bold()
-                    Text("Latitude: \(place.location.lat)")
-                        .font(.caption)
-                    Text("Longitude: \(place.location.long)")
-                        .font(.caption)
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(place.name)
+                            .font(.footnote)
+                            .bold()
+                        Text("Latitude: \(place.location.lat)")
+                            .font(.caption)
+                        Text("Longitude: \(place.location.long)")
+                            .font(.caption)
+                    }
+
+                    Spacer()
                 }
+                .contentShape(Rectangle())
                 .listRowBackground(Color(red: 230/255.0, green: 170/255.0, blue: 39/255.0, opacity: 0.6))
                 .onTapGesture {
                     onTap?(place)

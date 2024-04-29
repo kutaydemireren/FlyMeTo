@@ -16,7 +16,7 @@
 		CA20A44D2BDFB6C200C651CD /* Decoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A44C2BDFB6C200C651CD /* Decoding.swift */; };
 		CA20A44F2BDFB6E800C651CD /* NetworkManagerImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A44E2BDFB6E800C651CD /* NetworkManagerImp.swift */; };
 		CA20A4562BDFB78F00C651CD /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4552BDFB78F00C651CD /* Request.swift */; };
-		CA20A4582BDFB7A000C651CD /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4572BDFB7A000C651CD /* NetworkError.swift */; };
+		CA20A4582BDFB7A000C651CD /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4572BDFB7A000C651CD /* Errors.swift */; };
 		CA20A45A2BDFB88800C651CD /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4592BDFB88800C651CD /* NetworkManager.swift */; };
 		CA54FBB82BDD9B3100E02F31 /* PlacesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */; };
 		CA54FBBA2BDD9B6400E02F31 /* PlacesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */; };
@@ -55,7 +55,7 @@
 		CA20A44C2BDFB6C200C651CD /* Decoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoding.swift; sourceTree = "<group>"; };
 		CA20A44E2BDFB6E800C651CD /* NetworkManagerImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerImp.swift; sourceTree = "<group>"; };
 		CA20A4552BDFB78F00C651CD /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		CA20A4572BDFB7A000C651CD /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		CA20A4572BDFB7A000C651CD /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		CA20A4592BDFB88800C651CD /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesInteractor.swift; sourceTree = "<group>"; };
 		CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesPresenter.swift; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 		CA20A45C2BDFB8DC00C651CD /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				CA20A4572BDFB7A000C651CD /* NetworkError.swift */,
+				CA20A4572BDFB7A000C651CD /* Errors.swift */,
 				CA20A4552BDFB78F00C651CD /* Request.swift */,
 				CA20A44C2BDFB6C200C651CD /* Decoding.swift */,
 				CA20A4592BDFB88800C651CD /* NetworkManager.swift */,
@@ -370,7 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA20A45A2BDFB88800C651CD /* NetworkManager.swift in Sources */,
-				CA20A4582BDFB7A000C651CD /* NetworkError.swift in Sources */,
+				CA20A4582BDFB7A000C651CD /* Errors.swift in Sources */,
 				CA54FBC12BDD9C1E00E02F31 /* Place+Stubs.swift in Sources */,
 				CA20A4562BDFB78F00C651CD /* Request.swift in Sources */,
 				CA20A4492BDFB18400C651CD /* GetPlacesUseCaseImp.swift in Sources */,

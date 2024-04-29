@@ -7,17 +7,34 @@
 
 import Foundation
 
+// TODO: Move
+
+struct GetPlacesRequest: Request {
+    var host: String = "raw.githubusercontent.com"
+    var path: String = "/abnamrocoesd/assignment-ios/main/locations.json"
+}
+
+struct PlacesResponse: Decodable {
+    let locations: [Place]
+}
+
 //
 
-var fetchCount = 0 // TODO: Remove
+struct PlacesRepositoryImp: PlacesRepository {
+    let networkManager: NetworkManager
+    let decoding: Decoding
 
-struct PlacesRepositoryTemp: PlacesRepository {
+    init(
+        networkManager: NetworkManager = NetworkManagerImp(),
+        decoding: Decoding = JSONDecoder()
+    ) {
+        self.networkManager = networkManager
+        self.decoding = decoding
+    }
+
     func fetchPlaces() async throws -> [Place] {
-        try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
-        fetchCount += 1
-        guard fetchCount % 2 == 0 else  {
-            throw PlacesError.noResult
-        }
-        return .stub
+        let data = try await networkManager.perform(GetPlacesRequest())
+        let response = try! decoding.decode(PlacesResponse.self, from: data)
+        return response.locations
     }
 }

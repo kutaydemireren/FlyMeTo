@@ -15,7 +15,7 @@ struct GetPlacesUseCaseImp: GetPlacesUseCase {
     let repository: PlacesRepository
 
     init(
-        repository: PlacesRepository = PlacesRepositoryTemp()
+        repository: PlacesRepository = PlacesRepositoryImp()
     ) {
         self.repository = repository
     }

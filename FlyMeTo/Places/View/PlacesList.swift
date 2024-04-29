@@ -17,9 +17,11 @@ struct PlacesList: View {
             ForEach(places) { place in
                 HStack {
                     VStack(alignment: .leading) {
-                        Text(place.name)
-                            .font(.footnote)
-                            .bold()
+                        if let name = place.name {
+                            Text(name)
+                                .font(.footnote)
+                                .bold()
+                        }
                         Text("Latitude: \(place.location.lat)")
                             .font(.caption)
                         Text("Longitude: \(place.location.long)")

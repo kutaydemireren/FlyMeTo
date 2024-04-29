@@ -13,7 +13,6 @@ enum RequestType: String {
 
 protocol Request {
     var host: String { get }
-    var port: Int? { get }
     var path: String { get }
     var requestType: RequestType { get }
 }
@@ -25,9 +24,8 @@ extension Request {
 
     func createURLRequest() throws -> URLRequest {
         var components = URLComponents()
-        components.scheme = "http"
+        components.scheme = "https"
         components.host = host
-        components.port = port
         components.path = path
 
         guard let url = components.url else { throw NetworkError.unexpectedURL }

@@ -27,6 +27,8 @@
 		CA20A46D2BDFF06000C651CD /* PlacesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A46C2BDFF06000C651CD /* PlacesResponse.swift */; };
 		CA20A4702BE019BB00C651CD /* TitledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A46F2BE019BB00C651CD /* TitledTextField.swift */; };
 		CA20A4722BE01A9200C651CD /* CustomPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4712BE01A9200C651CD /* CustomPlaceView.swift */; };
+		CA20A4752BE028C100C651CD /* VerifyLocationUseCaseImpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4742BE028C100C651CD /* VerifyLocationUseCaseImpTests.swift */; };
+		CA20A4772BE02D9E00C651CD /* Double+UserDefined.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4762BE02D9E00C651CD /* Double+UserDefined.swift */; };
 		CA54FBB82BDD9B3100E02F31 /* PlacesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */; };
 		CA54FBBA2BDD9B6400E02F31 /* PlacesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */; };
 		CA54FBBC2BDD9B9A00E02F31 /* PlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */; };
@@ -75,6 +77,8 @@
 		CA20A46C2BDFF06000C651CD /* PlacesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesResponse.swift; sourceTree = "<group>"; };
 		CA20A46F2BE019BB00C651CD /* TitledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextField.swift; sourceTree = "<group>"; };
 		CA20A4712BE01A9200C651CD /* CustomPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPlaceView.swift; sourceTree = "<group>"; };
+		CA20A4742BE028C100C651CD /* VerifyLocationUseCaseImpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyLocationUseCaseImpTests.swift; sourceTree = "<group>"; };
+		CA20A4762BE02D9E00C651CD /* Double+UserDefined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+UserDefined.swift"; sourceTree = "<group>"; };
 		CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesInteractor.swift; sourceTree = "<group>"; };
 		CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesPresenter.swift; sourceTree = "<group>"; };
 		CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesRepository.swift; sourceTree = "<group>"; };
@@ -221,6 +225,7 @@
 			children = (
 				CA54FBBE2BDD9BC700E02F31 /* Place.swift */,
 				CA20A43D2BDFAA2200C651CD /* PlacesError.swift */,
+				CA20A4762BE02D9E00C651CD /* Double+UserDefined.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -278,6 +283,7 @@
 				CA54FBC22BDD9C7B00E02F31 /* Mock */,
 				CA8EB7982BDD876A00A41A95 /* PlacesInteractorImpTests.swift */,
 				CA20A4462BDFABF000C651CD /* GetPlacesUseCaseImpTests.swift */,
+				CA20A4742BE028C100C651CD /* VerifyLocationUseCaseImpTests.swift */,
 			);
 			path = Places;
 			sourceTree = "<group>";
@@ -443,6 +449,7 @@
 				CA20A4562BDFB78F00C651CD /* Request.swift in Sources */,
 				CA20A4492BDFB18400C651CD /* GetPlacesUseCaseImp.swift in Sources */,
 				CA20A46B2BDFF04700C651CD /* GetPlacesRequest.swift in Sources */,
+				CA20A4772BE02D9E00C651CD /* Double+UserDefined.swift in Sources */,
 				CA20A46D2BDFF06000C651CD /* PlacesResponse.swift in Sources */,
 				CA54FBB82BDD9B3100E02F31 /* PlacesInteractor.swift in Sources */,
 				CA20A43E2BDFAA2200C651CD /* PlacesError.swift in Sources */,
@@ -469,6 +476,7 @@
 				CA20A44B2BDFB26C00C651CD /* MockGetPlacesUseCase.swift in Sources */,
 				CA20A4472BDFABF000C651CD /* GetPlacesUseCaseImpTests.swift in Sources */,
 				CA20A4692BDFEF0A00C651CD /* MockDecoding.swift in Sources */,
+				CA20A4752BE028C100C651CD /* VerifyLocationUseCaseImpTests.swift in Sources */,
 				CA54FBC72BDD9CC200E02F31 /* TestError.swift in Sources */,
 				CA20A4672BDFEED500C651CD /* MockNetworkManager.swift in Sources */,
 				CA20A4642BDFEEB600C651CD /* Helpers.swift in Sources */,

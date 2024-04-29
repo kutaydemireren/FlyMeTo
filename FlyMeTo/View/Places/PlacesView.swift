@@ -41,6 +41,19 @@ final class PlacesViewModel: ObservableObject, PlacesPresenter {
         }
     }
 
+    func confirmLocation() {
+        guard
+            let lat = Double(latitude),
+            let long = Double(longitude)
+        else { return }
+
+        Task {
+            await interactor.select(
+                place: Place(name: nil,location: PlaceLocation(lat: lat,long: long))
+            )
+        }
+    }
+
     func update(places: [Place]) async {
         self.places = places
     }
@@ -89,7 +102,8 @@ struct PlacesView: View {
                 CustomPlaceView(
                     title: "Or, you can try flying yourself:",
                     latitude: $viewModel.latitude,
-                    longitude: $viewModel.longitude
+                    longitude: $viewModel.longitude,
+                    confirm: { viewModel.confirmLocation() }
                 )
             },
             onTap: { viewModel.select(place:$0) }

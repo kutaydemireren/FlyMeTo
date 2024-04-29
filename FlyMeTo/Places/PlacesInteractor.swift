@@ -17,34 +17,30 @@ protocol PlacesInteractor: AnyObject {
 }
 
 final class PlacesInteractorImp: PlacesInteractor {
-    let repository: PlacesRepository
-    let preferredDestinationUseCase: PreferredDestinationUseCase
+    let getPlaces: GetPlacesUseCase
+    let preferredDestination: PreferredDestinationUseCase
 
     weak var presenter: PlacesPresenter?
 
     init(
-        repository: PlacesRepository = PlacesRepositoryTemp(),
-        preferredDestinationUseCase: PreferredDestinationUseCase = PreferredDestinationUseCaseImp()
+        getPlaces: GetPlacesUseCase = GetPlacesUseCaseImp(),
+        preferredDestination: PreferredDestinationUseCase = PreferredDestinationUseCaseImp()
     ) {
-        self.repository = repository
-        self.preferredDestinationUseCase = preferredDestinationUseCase
+        self.getPlaces = getPlaces
+        self.preferredDestination = preferredDestination
     }
 
     func fetchPlaces() async {
         do {
-            let places = try await repository.fetchPlaces()
-            guard !places.isEmpty else {
-                await presenter?.failure(error: PlacesError.noResult)
-                return
-            }
+            let places = try await getPlaces.fetch()
             await presenter?.update(places: places)
         } catch {
-            await presenter?.failure(error: .underlying(error))
+            await presenter?.failure(error: (error as? PlacesError) ?? .underlying(error))
         }
     }
 
     func select(place: Place) async {
-        let preferredDestination = preferredDestinationUseCase.get()
+        let preferredDestination = preferredDestination.get()
         var components = URLComponents(string: "\(preferredDestination.rawValue)")
 
         components?.query = "loc=\(place.location.lat),\(place.location.long)"

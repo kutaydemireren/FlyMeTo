@@ -10,6 +10,8 @@
 		CA20A43E2BDFAA2200C651CD /* PlacesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A43D2BDFAA2200C651CD /* PlacesError.swift */; };
 		CA20A4422BDFAA6800C651CD /* PlacesRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4412BDFAA6800C651CD /* PlacesRepositoryImp.swift */; };
 		CA20A4452BDFAA9F00C651CD /* PreferredDestinationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4442BDFAA9F00C651CD /* PreferredDestinationUseCase.swift */; };
+		CA20A4472BDFABF000C651CD /* GetPlacesUseCaseImpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4462BDFABF000C651CD /* GetPlacesUseCaseImpTests.swift */; };
+		CA20A4492BDFB18400C651CD /* GetPlacesUseCaseImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4482BDFB18400C651CD /* GetPlacesUseCaseImp.swift */; };
 		CA54FBB82BDD9B3100E02F31 /* PlacesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */; };
 		CA54FBBA2BDD9B6400E02F31 /* PlacesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */; };
 		CA54FBBC2BDD9B9A00E02F31 /* PlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */; };
@@ -41,6 +43,8 @@
 		CA20A43D2BDFAA2200C651CD /* PlacesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesError.swift; sourceTree = "<group>"; };
 		CA20A4412BDFAA6800C651CD /* PlacesRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesRepositoryImp.swift; sourceTree = "<group>"; };
 		CA20A4442BDFAA9F00C651CD /* PreferredDestinationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredDestinationUseCase.swift; sourceTree = "<group>"; };
+		CA20A4462BDFABF000C651CD /* GetPlacesUseCaseImpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesUseCaseImpTests.swift; sourceTree = "<group>"; };
+		CA20A4482BDFB18400C651CD /* GetPlacesUseCaseImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesUseCaseImp.swift; sourceTree = "<group>"; };
 		CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesInteractor.swift; sourceTree = "<group>"; };
 		CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesPresenter.swift; sourceTree = "<group>"; };
 		CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesRepository.swift; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				CA20A4442BDFAA9F00C651CD /* PreferredDestinationUseCase.swift */,
+				CA20A4482BDFB18400C651CD /* GetPlacesUseCaseImp.swift */,
 			);
 			path = "Use Cases";
 			sourceTree = "<group>";
@@ -175,6 +180,7 @@
 			children = (
 				CA54FBC22BDD9C7B00E02F31 /* Mock */,
 				CA8EB7982BDD876A00A41A95 /* PlacesInteractorImpTests.swift */,
+				CA20A4462BDFABF000C651CD /* GetPlacesUseCaseImpTests.swift */,
 			);
 			path = Places;
 			sourceTree = "<group>";
@@ -330,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA54FBC12BDD9C1E00E02F31 /* Place+Stubs.swift in Sources */,
+				CA20A4492BDFB18400C651CD /* GetPlacesUseCaseImp.swift in Sources */,
 				CA54FBB82BDD9B3100E02F31 /* PlacesInteractor.swift in Sources */,
 				CA20A43E2BDFAA2200C651CD /* PlacesError.swift in Sources */,
 				CA20A4422BDFAA6800C651CD /* PlacesRepositoryImp.swift in Sources */,
@@ -348,6 +355,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA20A4472BDFABF000C651CD /* GetPlacesUseCaseImpTests.swift in Sources */,
 				CA54FBC72BDD9CC200E02F31 /* TestError.swift in Sources */,
 				CA54FBC42BDD9C8300E02F31 /* MockPlacesPresenter.swift in Sources */,
 				CA8EB7992BDD876A00A41A95 /* PlacesInteractorImpTests.swift in Sources */,

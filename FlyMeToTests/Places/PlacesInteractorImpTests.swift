@@ -8,15 +8,28 @@
 import XCTest
 @testable import FlyMeTo
 
+// TODO: Move
+
+final class MockGetPlacesUseCase: GetPlacesUseCase {
+    var error: Error? = nil
+    var places: [Place] = []
+
+    func fetch() async throws -> [Place] {
+        return try throwError(error, orReturnValue: places)
+    }
+}
+
+//
+
 final class PlacesInteractorImpTests: XCTestCase {
     var sut: PlacesInteractorImp!
-    var mockRepository: MockPlacesRepository!
+    var mockGetPlaces: MockGetPlacesUseCase!
     var mockPresenter: MockPlacesPresenter!
 
     override func setUpWithError() throws {
-        mockRepository = MockPlacesRepository()
+        mockGetPlaces = MockGetPlacesUseCase()
         mockPresenter = MockPlacesPresenter()
-        sut = PlacesInteractorImp(repository: mockRepository)
+        sut = PlacesInteractorImp(getPlaces: mockGetPlaces)
         sut.presenter = mockPresenter
     }
 
@@ -27,26 +40,27 @@ final class PlacesInteractorImpTests: XCTestCase {
 
 // MARK: fetchPlaces
 extension PlacesInteractorImpTests {
-    func test_fetchPlaces_whenRepositoryThrowsError_shouldFailWithExpectedError() async {
+    func test_fetchPlaces_whenThrownPlacesError_shouldFailWithPlacesError() async {
+        let expectedError = PlacesError.noResult
+        mockGetPlaces.error = expectedError
+
+        await sut.fetchPlaces()
+
+        XCTAssertEqual(mockPresenter.failureError, expectedError)
+    }
+
+    func test_fetchPlaces_whenThrownAnyError_shouldFailWithUnderlyingError() async {
         let expectedError = TestError.notAllowed
-        mockRepository.error = expectedError
+        mockGetPlaces.error = expectedError
 
         await sut.fetchPlaces()
 
         XCTAssertEqual(mockPresenter.failureError, .underlying(expectedError))
     }
 
-    func test_fetchPlaces_whenEmpty_shouldFailWithNoResult() async {
-        mockRepository.places = []
-
-        await sut.fetchPlaces()
-
-        XCTAssertEqual(mockPresenter.failureError, .noResult)
-    }
-
     func test_fetchPlaces_whenSuccess_shouldUpdateExpectedPlaces() async {
         let expectedPlaces: [Place] = .stub
-        mockRepository.places = expectedPlaces
+        mockGetPlaces.places = expectedPlaces
 
         await sut.fetchPlaces()
 
@@ -54,7 +68,7 @@ extension PlacesInteractorImpTests {
     }
 }
 
-// MARK:
+// MARK: selectLocation
 extension PlacesInteractorImpTests {
     func test_selectLocation_shouldRedirectWithExpectedQuery() async {
         await sut.select(place: .chicago)

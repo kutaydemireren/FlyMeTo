@@ -11,7 +11,7 @@ import SwiftUI
 struct TitledTextField: View {
     var title: String = ""
     var titleLength: CGFloat = 100
-    var borderColor: Color = Color(red: 230/255.0, green: 170/255.0, blue: 39/255.0, opacity: 0.6)
+    var borderColor: Color = .foregroundPrimary
 
     @Binding var text: String
 

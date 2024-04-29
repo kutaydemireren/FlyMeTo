@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+extension Color {
+    static var foregroundPrimary: Color {
+        Color(red: 230/255.0, green: 170/255.0, blue: 39/255.0, opacity: 0.6)
+    }
+}
+
 /// Prompts for a latitude and a longitude necessary to create a `Place`.
 struct CustomPlaceView: View {
     var title: String = ""
@@ -30,9 +36,15 @@ struct CustomPlaceView: View {
                 )
             }
 
-            Button("Fly me!") {
+            Button {
                 // TODO: send?
+            } label: {
+                Text("Confirm Take Off")
+                    .foregroundStyle(.black)
+                    .font(.callout)
             }
+            .padding(12)
+            .background(Color.foregroundPrimary, in: .capsule)
         }
         .frame(maxWidth: .infinity)
         .listRowBackground(Color.clear)

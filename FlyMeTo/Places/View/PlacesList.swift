@@ -10,6 +10,8 @@ import SwiftUI
 struct PlacesList: View {
     @Binding var places: [Place]
 
+    var onTap: ((Place) -> Void)?
+
     var body: some View {
         List {
             ForEach(places) { place in
@@ -23,6 +25,9 @@ struct PlacesList: View {
                         .font(.caption)
                 }
                 .listRowBackground(Color(red: 230/255.0, green: 170/255.0, blue: 39/255.0, opacity: 0.6))
+                .onTapGesture {
+                    onTap?(place)
+                }
             }
         }
         .listRowSpacing(16)

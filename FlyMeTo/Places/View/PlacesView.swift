@@ -31,6 +31,12 @@ final class PlacesViewModel: ObservableObject, PlacesPresenter {
         }
     }
 
+    func select(place: Place) {
+        Task {
+            await interactor.select(place: place)
+        }
+    }
+
     func update(places: [Place]) async {
         self.places = places
     }
@@ -41,8 +47,8 @@ final class PlacesViewModel: ObservableObject, PlacesPresenter {
     }
 
     func redirect(_ redirection: Redirection) async {
-        // TODO: Missing implementation
-        debugPrint(#function)
+        guard let url = redirection.url else { return }
+        await UIApplication.shared.open(url)
     }
 }
 
@@ -53,7 +59,10 @@ struct PlacesView: View {
         ZStack {
             backgroundView
 
-            PlacesList(places: $viewModel.places)
+            PlacesList(
+                places: $viewModel.places,
+                onTap: { viewModel.select(place:$0) }
+            )
                 .scrollContentBackground(.hidden)
         }
         .alert(isPresented: $viewModel.errorAlertPresented, error: viewModel.error) {

@@ -8,10 +8,6 @@
 import Foundation
 
 struct Place: Equatable, Identifiable, Codable {
-    let id = UUID()
-    let name: String
-    let location: PlaceLocation
-
     enum CodingKeys: CodingKey {
         case name
         case lat
@@ -21,6 +17,10 @@ struct Place: Equatable, Identifiable, Codable {
     var representable: String {
         return "\(name)-\(location.lat)-\(location.long)"
     }
+
+    let id = UUID()
+    let name: String
+    let location: PlaceLocation
 
     init(name: String, location: PlaceLocation) {
         self.name = name

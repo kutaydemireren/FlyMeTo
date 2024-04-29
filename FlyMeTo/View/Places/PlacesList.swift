@@ -51,6 +51,9 @@ struct PlacesList<Supplement: View>: View {
             supplement
         }
         .listRowSpacing(16)
+        .onTapGesture {
+            hideKeyboard()
+        }
     }
 }
 

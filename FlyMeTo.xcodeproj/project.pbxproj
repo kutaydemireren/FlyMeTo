@@ -31,6 +31,7 @@
 		CA20A4772BE02D9E00C651CD /* Double+UserDefined.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4762BE02D9E00C651CD /* Double+UserDefined.swift */; };
 		CA20A4792BE0321A00C651CD /* Double+Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4782BE0321A00C651CD /* Double+Stubs.swift */; };
 		CA20A47B2BE0323C00C651CD /* VerifyLocationUseCaseImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A47A2BE0323C00C651CD /* VerifyLocationUseCaseImp.swift */; };
+		CA20A47D2BE0378600C651CD /* View+Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A47C2BE0378600C651CD /* View+Keyboard.swift */; };
 		CA54FBB82BDD9B3100E02F31 /* PlacesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */; };
 		CA54FBBA2BDD9B6400E02F31 /* PlacesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */; };
 		CA54FBBC2BDD9B9A00E02F31 /* PlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */; };
@@ -83,6 +84,7 @@
 		CA20A4762BE02D9E00C651CD /* Double+UserDefined.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+UserDefined.swift"; sourceTree = "<group>"; };
 		CA20A4782BE0321A00C651CD /* Double+Stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Stubs.swift"; sourceTree = "<group>"; };
 		CA20A47A2BE0323C00C651CD /* VerifyLocationUseCaseImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyLocationUseCaseImp.swift; sourceTree = "<group>"; };
+		CA20A47C2BE0378600C651CD /* View+Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Keyboard.swift"; sourceTree = "<group>"; };
 		CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesInteractor.swift; sourceTree = "<group>"; };
 		CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesPresenter.swift; sourceTree = "<group>"; };
 		CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesRepository.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				CA20A46F2BE019BB00C651CD /* TitledTextField.swift */,
+				CA20A47C2BE0378600C651CD /* View+Keyboard.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				CA20A4582BDFB7A000C651CD /* Errors.swift in Sources */,
 				CA54FBC12BDD9C1E00E02F31 /* Place+Stubs.swift in Sources */,
 				CA20A4562BDFB78F00C651CD /* Request.swift in Sources */,
+				CA20A47D2BE0378600C651CD /* View+Keyboard.swift in Sources */,
 				CA20A4492BDFB18400C651CD /* GetPlacesUseCaseImp.swift in Sources */,
 				CA20A46B2BDFF04700C651CD /* GetPlacesRequest.swift in Sources */,
 				CA20A4772BE02D9E00C651CD /* Double+UserDefined.swift in Sources */,

@@ -7,68 +7,6 @@
 
 import Foundation
 
-//
-
-var fetchCount = 0 // TODO: Remove
-
-struct PlacesRepositoryTemp: PlacesRepository {
-    func fetchPlaces() async throws -> [Place] {
-        try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
-        fetchCount += 1
-        guard fetchCount % 2 == 0 else  {
-            throw PlacesError.noResult
-        }
-        return .stub
-    }
-}
-
-//
-
-enum PlacesError: LocalizedError, Equatable {
-    case unknown
-    case underlying(Error)
-    case noResult
-
-    var errorDescription: String? {
-        switch self {
-        case .unknown:
-            return "Something went wrong!"
-        case .underlying(let error):
-            return error.localizedDescription
-        case .noResult:
-            return "No results have been found."
-        }
-    }
-
-    var failureReason: String? {
-        switch self {
-        case .unknown:
-            return "Failure reason is unknown."
-        case .underlying(let error):
-            return (error as? LocalizedError)?.failureReason
-        case .noResult:
-            return "Received an empty result."
-        }
-    }
-
-    var recoverySuggestion: String? {
-        switch self {
-        case .unknown:
-            return "Please try again."
-        case .underlying(let error):
-            return (error as? LocalizedError)?.recoverySuggestion
-        case .noResult:
-            return "Please make sure places are remotely available and retry again."
-        }
-    }
-
-    static func == (lhs: PlacesError, rhs: PlacesError) -> Bool {
-        return (lhs as NSError) == (rhs as NSError)
-    }
-}
-
-//
-
 protocol PlacesInteractor: AnyObject {
     var presenter: PlacesPresenter? { get set }
 
@@ -116,18 +54,5 @@ final class PlacesInteractorImp: PlacesInteractor {
                 url: components?.url
             )
         )
-    }
-}
-
-protocol PreferredDestinationUseCase {
-    /// Returns the preferred destination.
-    ///
-    /// Until the app has a second `Redirection.Destination`, it is always assumed to be `wikiPlaces`.
-    func get() -> Redirection.Destination
-}
-
-struct PreferredDestinationUseCaseImp: PreferredDestinationUseCase {
-    func get() -> Redirection.Destination {
-        return .wikiPlaces
     }
 }

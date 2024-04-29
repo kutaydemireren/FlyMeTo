@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA20A43E2BDFAA2200C651CD /* PlacesError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A43D2BDFAA2200C651CD /* PlacesError.swift */; };
+		CA20A4422BDFAA6800C651CD /* PlacesRepositoryImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4412BDFAA6800C651CD /* PlacesRepositoryImp.swift */; };
+		CA20A4452BDFAA9F00C651CD /* PreferredDestinationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4442BDFAA9F00C651CD /* PreferredDestinationUseCase.swift */; };
 		CA54FBB82BDD9B3100E02F31 /* PlacesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */; };
 		CA54FBBA2BDD9B6400E02F31 /* PlacesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */; };
 		CA54FBBC2BDD9B9A00E02F31 /* PlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CA20A43D2BDFAA2200C651CD /* PlacesError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesError.swift; sourceTree = "<group>"; };
+		CA20A4412BDFAA6800C651CD /* PlacesRepositoryImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesRepositoryImp.swift; sourceTree = "<group>"; };
+		CA20A4442BDFAA9F00C651CD /* PreferredDestinationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredDestinationUseCase.swift; sourceTree = "<group>"; };
 		CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesInteractor.swift; sourceTree = "<group>"; };
 		CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesPresenter.swift; sourceTree = "<group>"; };
 		CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesRepository.swift; sourceTree = "<group>"; };
@@ -74,9 +80,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CA20A43F2BDFAA3E00C651CD /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				CA20A4402BDFAA5700C651CD /* Places */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		CA20A4402BDFAA5700C651CD /* Places */ = {
+			isa = PBXGroup;
+			children = (
+				CA20A4412BDFAA6800C651CD /* PlacesRepositoryImp.swift */,
+			);
+			path = Places;
+			sourceTree = "<group>";
+		};
+		CA20A4432BDFAA8D00C651CD /* Use Cases */ = {
+			isa = PBXGroup;
+			children = (
+				CA20A4442BDFAA9F00C651CD /* PreferredDestinationUseCase.swift */,
+			);
+			path = "Use Cases";
+			sourceTree = "<group>";
+		};
 		CA54FBB62BDD9B2300E02F31 /* Places */ = {
 			isa = PBXGroup;
 			children = (
+				CA20A4432BDFAA8D00C651CD /* Use Cases */,
 				CA54FBD02BDDABA600E02F31 /* View */,
 				CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */,
 				CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */,
@@ -89,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				CA54FBBE2BDD9BC700E02F31 /* Place.swift */,
+				CA20A43D2BDFAA2200C651CD /* PlacesError.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -169,6 +201,7 @@
 		CAB0EACF2BDD80FA00FD0367 /* FlyMeTo */ = {
 			isa = PBXGroup;
 			children = (
+				CA20A43F2BDFAA3E00C651CD /* Repositories */,
 				CA54FBBD2BDD9BBB00E02F31 /* Entities */,
 				CA54FBB62BDD9B2300E02F31 /* Places */,
 				CA8EB78F2BDD861C00A41A95 /* iOS */,
@@ -188,9 +221,9 @@
 		CAB0EAE02BDD80FD00FD0367 /* FlyMeToTests */ = {
 			isa = PBXGroup;
 			children = (
-				CA54FBC52BDD9CAF00E02F31 /* Utils */,
 				CA8EB7952BDD873800A41A95 /* FlyMeToTests-Bridging-Header.h */,
 				CA8EB7942BDD872300A41A95 /* Places */,
+				CA54FBC52BDD9CAF00E02F31 /* Utils */,
 			);
 			path = FlyMeToTests;
 			sourceTree = "<group>";
@@ -298,12 +331,15 @@
 			files = (
 				CA54FBC12BDD9C1E00E02F31 /* Place+Stubs.swift in Sources */,
 				CA54FBB82BDD9B3100E02F31 /* PlacesInteractor.swift in Sources */,
+				CA20A43E2BDFAA2200C651CD /* PlacesError.swift in Sources */,
+				CA20A4422BDFAA6800C651CD /* PlacesRepositoryImp.swift in Sources */,
 				CAB0EAD32BDD80FA00FD0367 /* ContentView.swift in Sources */,
 				CA54FBBA2BDD9B6400E02F31 /* PlacesPresenter.swift in Sources */,
 				CA54FBBF2BDD9BC700E02F31 /* Place.swift in Sources */,
 				CA54FBBC2BDD9B9A00E02F31 /* PlacesRepository.swift in Sources */,
 				CA54FBD22BDDABB700E02F31 /* PlacesList.swift in Sources */,
 				CA54FBCF2BDDA7A700E02F31 /* PlacesView.swift in Sources */,
+				CA20A4452BDFAA9F00C651CD /* PreferredDestinationUseCase.swift in Sources */,
 				CAB0EAD12BDD80FA00FD0367 /* FlyMeToApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

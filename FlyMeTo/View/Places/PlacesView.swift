@@ -49,7 +49,7 @@ final class PlacesViewModel: ObservableObject, PlacesPresenter {
 
         Task {
             await interactor.select(
-                place: Place(name: nil,location: PlaceLocation(lat: lat,long: long))
+                place: Place(name: nil, location: PlaceLocation(lat: lat, long: long))
             )
         }
     }

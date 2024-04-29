@@ -18,11 +18,13 @@ struct TitledTextField: View {
     var body: some View {
         HStack {
             Text(title)
+                .keyboardType(.decimalPad)
                 .font(.callout)
                 .lineLimit(1)
                 .frame(width: titleLength)
 
             TextField("", text: $text)
+                .keyboardType(.decimalPad)
                 .multilineTextAlignment(.center)
                 .padding(8)
                 .border(borderColor)

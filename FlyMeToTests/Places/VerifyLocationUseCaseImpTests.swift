@@ -12,7 +12,17 @@ import XCTest
 
 struct VerifyLocationUseCaseImp {
     func verify(_ location: PlaceLocation) throws {
+        let lat = location.lat
+        guard .lowestPossibleLatitude <= lat && lat <= .highestPossibleLatitude else {
+            throw PlacesError.latitudeInvalid(location)
+        }
 
+        let long = location.long
+        guard .lowestPossibleLongitude <= long && long <= .highestPossibleLongitude else {
+            throw PlacesError.longitudeInvalid(location)
+        }
+
+        throw TestError.notAllowed
     }
 }
 
@@ -50,7 +60,7 @@ final class VerifyLocationUseCaseImpTests: XCTestCase {
     }
 
     func test_verify_whenLongitudeInvalid_shouldThrowExpectedError() async {
-        let location = PlaceLocation(lat: .invalidLatitude, long: .invalidLongitude)
+        let location = PlaceLocation(lat: .validLatitude, long: .invalidLongitude)
         do {
             try sut.verify(location)
             XCTFail("Expected error to be thrown.")

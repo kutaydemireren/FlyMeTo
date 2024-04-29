@@ -8,19 +8,6 @@
 import XCTest
 @testable import FlyMeTo
 
-// TODO: Move
-
-final class MockGetPlacesUseCase: GetPlacesUseCase {
-    var error: Error? = nil
-    var places: [Place] = []
-
-    func fetch() async throws -> [Place] {
-        return try throwError(error, orReturnValue: places)
-    }
-}
-
-//
-
 final class PlacesInteractorImpTests: XCTestCase {
     var sut: PlacesInteractorImp!
     var mockGetPlaces: MockGetPlacesUseCase!
@@ -34,6 +21,8 @@ final class PlacesInteractorImpTests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
+        mockGetPlaces = nil
+        mockPresenter = nil
         sut = nil
     }
 }

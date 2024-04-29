@@ -12,6 +12,7 @@
 		CA20A4452BDFAA9F00C651CD /* PreferredDestinationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4442BDFAA9F00C651CD /* PreferredDestinationUseCase.swift */; };
 		CA20A4472BDFABF000C651CD /* GetPlacesUseCaseImpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4462BDFABF000C651CD /* GetPlacesUseCaseImpTests.swift */; };
 		CA20A4492BDFB18400C651CD /* GetPlacesUseCaseImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A4482BDFB18400C651CD /* GetPlacesUseCaseImp.swift */; };
+		CA20A44B2BDFB26C00C651CD /* MockGetPlacesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA20A44A2BDFB26C00C651CD /* MockGetPlacesUseCase.swift */; };
 		CA54FBB82BDD9B3100E02F31 /* PlacesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */; };
 		CA54FBBA2BDD9B6400E02F31 /* PlacesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */; };
 		CA54FBBC2BDD9B9A00E02F31 /* PlacesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */; };
@@ -45,6 +46,7 @@
 		CA20A4442BDFAA9F00C651CD /* PreferredDestinationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredDestinationUseCase.swift; sourceTree = "<group>"; };
 		CA20A4462BDFABF000C651CD /* GetPlacesUseCaseImpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesUseCaseImpTests.swift; sourceTree = "<group>"; };
 		CA20A4482BDFB18400C651CD /* GetPlacesUseCaseImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPlacesUseCaseImp.swift; sourceTree = "<group>"; };
+		CA20A44A2BDFB26C00C651CD /* MockGetPlacesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGetPlacesUseCase.swift; sourceTree = "<group>"; };
 		CA54FBB72BDD9B3100E02F31 /* PlacesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesInteractor.swift; sourceTree = "<group>"; };
 		CA54FBB92BDD9B6400E02F31 /* PlacesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesPresenter.swift; sourceTree = "<group>"; };
 		CA54FBBB2BDD9B9A00E02F31 /* PlacesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesRepository.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			children = (
 				CA54FBC32BDD9C8300E02F31 /* MockPlacesPresenter.swift */,
 				CA54FBC82BDD9D1D00E02F31 /* MockPlacesRepository.swift */,
+				CA20A44A2BDFB26C00C651CD /* MockGetPlacesUseCase.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -355,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA20A44B2BDFB26C00C651CD /* MockGetPlacesUseCase.swift in Sources */,
 				CA20A4472BDFABF000C651CD /* GetPlacesUseCaseImpTests.swift in Sources */,
 				CA54FBC72BDD9CC200E02F31 /* TestError.swift in Sources */,
 				CA54FBC42BDD9C8300E02F31 /* MockPlacesPresenter.swift in Sources */,

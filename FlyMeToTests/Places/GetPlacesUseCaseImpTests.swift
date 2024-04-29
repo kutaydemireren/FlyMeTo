@@ -18,6 +18,7 @@ final class GetPlacesUseCaseImpTests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
+        mockRepository = nil
         sut = nil
     }
 

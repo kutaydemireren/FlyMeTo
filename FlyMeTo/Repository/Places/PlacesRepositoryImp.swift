@@ -7,19 +7,6 @@
 
 import Foundation
 
-// TODO: Move
-
-struct GetPlacesRequest: Request {
-    var host: String = "raw.githubusercontent.com"
-    var path: String = "/abnamrocoesd/assignment-ios/main/locations.json"
-}
-
-struct PlacesResponse: Decodable {
-    let locations: [Place]
-}
-
-//
-
 struct PlacesRepositoryImp: PlacesRepository {
     private let networkManager: NetworkManager
     private let decoding: Decoding

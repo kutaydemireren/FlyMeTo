@@ -27,15 +27,16 @@ final class PlacesInteractorImpTests: XCTestCase {
 
 // MARK: fetchPlaces
 extension PlacesInteractorImpTests {
-    func test_fetchPlaces_whenRepositoryThrowsError_shouldThrowSameError() async {
-        mockRepository.error = .notAllowed
+    func test_fetchPlaces_whenRepositoryThrowsError_shouldFailWithExpectedError() async {
+        let expectedError = TestError.notAllowed
+        mockRepository.error = expectedError
 
         await sut.fetchPlaces()
 
-        XCTAssertEqual(mockPresenter.failureError, .underlying(TestError.notAllowed))
+        XCTAssertEqual(mockPresenter.failureError, .underlying(expectedError))
     }
 
-    func test_fetchPlaces_whenEmpty_shouldThrowNoResult() async {
+    func test_fetchPlaces_whenEmpty_shouldFailWithNoResult() async {
         mockRepository.places = []
 
         await sut.fetchPlaces()
@@ -43,7 +44,7 @@ extension PlacesInteractorImpTests {
         XCTAssertEqual(mockPresenter.failureError, .noResult)
     }
 
-    func test_fetchPlaces_whenSuccess_shouldReturnExpected() async throws {
+    func test_fetchPlaces_whenSuccess_shouldUpdateExpectedPlaces() async {
         let expectedPlaces: [Place] = .stub
         mockRepository.places = expectedPlaces
 
@@ -53,5 +54,11 @@ extension PlacesInteractorImpTests {
     }
 }
 
-// MARK: selectLocation
-// TODO: missing coverage
+// MARK:
+extension PlacesInteractorImpTests {
+    func test_selectLocation_shouldRedirectWithExpectedQuery() async {
+        await sut.select(place: .chicago)
+
+        XCTAssertEqual(mockPresenter.redirection?.url?.absoluteString, "wikipedia://places?loc=\(PlaceLocation.chicago.lat),\(PlaceLocation.chicago.long)")
+    }
+}

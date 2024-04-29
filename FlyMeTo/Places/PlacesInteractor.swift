@@ -16,7 +16,7 @@ struct PlacesRepositoryTemp: PlacesRepository {
         try await Task.sleep(nanoseconds: 3 * 1_000_000_000)
         fetchCount += 1
         guard fetchCount % 2 == 0 else  {
-            throw PlacesError.noResult 
+            throw PlacesError.noResult
         }
         return .stub
     }
@@ -74,18 +74,22 @@ protocol PlacesInteractor: AnyObject {
 
     /// Tries to fetch and present an ordered list of `Place`s, ow/ presents failure
     func fetchPlaces() async
-    func select(location: PlaceLocation) async
+    /// Redirects user to the `location` of `Place` using the preferred `Redirection.Destination`.
+    func select(place: Place) async
 }
 
 final class PlacesInteractorImp: PlacesInteractor {
-    var repository: PlacesRepository
+    let repository: PlacesRepository
+    let preferredDestinationUseCase: PreferredDestinationUseCase
 
     weak var presenter: PlacesPresenter?
 
     init(
-        repository: PlacesRepository = PlacesRepositoryTemp()
+        repository: PlacesRepository = PlacesRepositoryTemp(),
+        preferredDestinationUseCase: PreferredDestinationUseCase = PreferredDestinationUseCaseImp()
     ) {
         self.repository = repository
+        self.preferredDestinationUseCase = preferredDestinationUseCase
     }
 
     func fetchPlaces() async {
@@ -101,7 +105,29 @@ final class PlacesInteractorImp: PlacesInteractor {
         }
     }
 
-    func select(location: PlaceLocation) async { // TODO: missing implementation
-        fatalError("missing implementation")
+    func select(place: Place) async { // TODO: missing implementation
+        let preferredDestination = preferredDestinationUseCase.get()
+        var components = URLComponents(string: "\(preferredDestination.rawValue)")
+
+        components?.query = "loc=\(place.location.lat),\(place.location.long)"
+
+        await presenter?.redirect(
+            Redirection(
+                url: components?.url
+            )
+        )
+    }
+}
+
+protocol PreferredDestinationUseCase {
+    /// Returns the preferred destination.
+    ///
+    /// Until the app has a second `Redirection.Destination`, it is always assumed to be `wikiPlaces`.
+    func get() -> Redirection.Destination
+}
+
+struct PreferredDestinationUseCaseImp: PreferredDestinationUseCase {
+    func get() -> Redirection.Destination {
+        return .wikiPlaces
     }
 }

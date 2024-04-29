@@ -43,7 +43,19 @@ struct Place: Equatable, Identifiable, Codable {
     }
 }
 
+//
+
 struct PlaceLocation: Equatable {
     let lat: Double
     let long: Double
+}
+
+//
+
+struct Redirection {
+    enum Destination: String {
+        case wikiPlaces = "wikipedia://places"
+    }
+
+    let url: URL?
 }

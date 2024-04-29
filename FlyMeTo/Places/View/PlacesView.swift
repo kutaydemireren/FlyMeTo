@@ -39,6 +39,11 @@ final class PlacesViewModel: ObservableObject, PlacesPresenter {
         self.error = error
         errorAlertPresented = true
     }
+
+    func redirect(_ redirection: Redirection) async {
+        // TODO: Missing implementation
+        debugPrint(#function)
+    }
 }
 
 struct PlacesView: View {

@@ -10,6 +10,10 @@ import SwiftUI
 @MainActor
 final class PlacesViewModel: ObservableObject, PlacesPresenter {
     @Published var places: [Place]
+
+    @Published var latitude: String = ""
+    @Published var longitude: String = ""
+
     @Published var errorAlertPresented: Bool = false
     var error: PlacesError?
 
@@ -59,20 +63,37 @@ struct PlacesView: View {
         ZStack {
             backgroundView
 
-            PlacesList(
-                places: $viewModel.places,
-                latitude: .constant(""), // TODO: missing
-                longitude: .constant(""), // TODO: missing
-                onTap: { viewModel.select(place:$0) }
-            )
-            .scrollContentBackground(.hidden)
-
+            if viewModel.places.count > 0 {
+                resultView
+            } else {
+                noResultView
+            }
         }
         .alert(isPresented: $viewModel.errorAlertPresented, error: viewModel.error) {
             Button("Retry") {
                 viewModel.refreshPlaces()
             }
         }
+    }
+
+    @ViewBuilder 
+    var noResultView: some View {
+        EmptyView()
+    }
+
+    @ViewBuilder 
+    var resultView: some View {
+        PlacesList(
+            places: $viewModel.places,
+            supplement: {
+                CustomPlaceView(
+                    latitude: $viewModel.latitude,
+                    longitude: $viewModel.longitude
+                )
+            },
+            onTap: { viewModel.select(place:$0) }
+        )
+        .scrollContentBackground(.hidden)
     }
 
     private var backgroundView: some View {

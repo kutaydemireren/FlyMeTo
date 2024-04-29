@@ -51,12 +51,21 @@ struct CustomPlaceView: View {
     }
 }
 
-struct PlacesList: View {
+struct PlacesList<Supplement: View>: View {
     @Binding var places: [Place]
-    @Binding var latitude: String
-    @Binding var longitude: String
+    @ViewBuilder var supplement: Supplement
 
     var onTap: ((Place) -> Void)?
+
+    init(
+        places: Binding<[Place]>,
+        @ViewBuilder supplement: () -> Supplement = { EmptyView() },
+        onTap: ((Place) -> Void)? = nil
+    ) {
+        self._places = places
+        self.supplement = supplement()
+        self.onTap = onTap
+    }
 
     var body: some View {
         List {
@@ -82,18 +91,15 @@ struct PlacesList: View {
                     onTap?(place)
                 }
             }
-
-            CustomPlaceView(
-                latitude: $latitude,
-                longitude: $longitude
-            )
+            
+            supplement
         }
         .listRowSpacing(16)
     }
 }
 
 #Preview("Places List") {
-    PlacesList(places: .constant(.stub), latitude: .constant("12.34"), longitude: .constant("-83.23"))
+    PlacesList(places: .constant(.stub))
         .scrollContentBackground(.hidden)
         .background {
             Color(red: 49/255, green: 144/255, blue: 130/255, opacity: 1.0)

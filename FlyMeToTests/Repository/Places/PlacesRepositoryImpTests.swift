@@ -53,12 +53,14 @@ final class PlacesRepositoryImpTests: XCTestCase {
     }
 
     func test_fetchPlaces_whenSuccess_shouldReturnExpectedPlaces() async throws {
+        let expectedData = loadPlacesJSONData()
+        mockNetworkManager.data = expectedData
         let expectedPlaces: [Place] = .stub
-        mockNetworkManager.data = loadPlacesJSONData()
         mockDecoding.decoded = PlacesResponse(locations: expectedPlaces)
 
         let resultedPlaces = try await sut.fetchPlaces()
 
+        XCTAssertEqual(mockDecoding.data, [expectedData])
         XCTAssertEqual(resultedPlaces, expectedPlaces)
     }
 }

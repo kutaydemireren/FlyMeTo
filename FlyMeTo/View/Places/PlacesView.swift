@@ -10,6 +10,10 @@ import SwiftUI
 @MainActor
 final class PlacesViewModel: ObservableObject, PlacesPresenter {
     @Published var places: [Place]
+
+    @Published var latitude: String = ""
+    @Published var longitude: String = ""
+
     @Published var errorAlertPresented: Bool = false
     var error: PlacesError?
 
@@ -37,6 +41,19 @@ final class PlacesViewModel: ObservableObject, PlacesPresenter {
         }
     }
 
+    func confirmLocation() {
+        guard
+            let lat = Double(latitude),
+            let long = Double(longitude)
+        else { return }
+
+        Task {
+            await interactor.select(
+                place: Place(name: nil, location: PlaceLocation(lat: lat, long: long))
+            )
+        }
+    }
+
     func update(places: [Place]) async {
         self.places = places
     }
@@ -59,11 +76,11 @@ struct PlacesView: View {
         ZStack {
             backgroundView
 
-            PlacesList(
-                places: $viewModel.places,
-                onTap: { viewModel.select(place:$0) }
-            )
-            .scrollContentBackground(.hidden)
+            if viewModel.places.count > 0 {
+                resultView
+            } else {
+                noResultView
+            }
         }
         .alert(isPresented: $viewModel.errorAlertPresented, error: viewModel.error) {
             Button("Retry") {
@@ -72,9 +89,31 @@ struct PlacesView: View {
         }
     }
 
+    @ViewBuilder 
+    var noResultView: some View {
+        EmptyView()
+    }
+
+    @ViewBuilder 
+    var resultView: some View {
+        PlacesList(
+            places: $viewModel.places,
+            supplement: {
+                CustomPlaceView(
+                    title: "Or, you can try flying yourself:",
+                    latitude: $viewModel.latitude,
+                    longitude: $viewModel.longitude,
+                    confirm: { viewModel.confirmLocation() }
+                )
+            },
+            onTap: { viewModel.select(place:$0) }
+        )
+        .scrollContentBackground(.hidden)
+    }
+
     private var backgroundView: some View {
         Rectangle()
-            .fill(Color(red: 49/255, green: 144/255, blue: 130/255, opacity: 1.0))
+            .fill(Color.backgroundPrimary)
             .ignoresSafeArea()
     }
 }

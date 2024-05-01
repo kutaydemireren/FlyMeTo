@@ -8,20 +8,31 @@
 import XCTest
 @testable import FlyMeTo
 
+final class MockVerifyLocation: VerifyLocationUseCase {
+    var error: Error? = nil
+
+    func verify(_ location: PlaceLocation) throws -> Bool {
+        return try throwError(error, orReturnValue: true)
+    }
+}
+
 final class PlacesInteractorImpTests: XCTestCase {
     var sut: PlacesInteractorImp!
     var mockGetPlaces: MockGetPlacesUseCase!
+    var mockVerifyLocation: MockVerifyLocation!
     var mockPresenter: MockPlacesPresenter!
 
     override func setUpWithError() throws {
         mockGetPlaces = MockGetPlacesUseCase()
+        mockVerifyLocation = MockVerifyLocation()
         mockPresenter = MockPlacesPresenter()
-        sut = PlacesInteractorImp(getPlaces: mockGetPlaces)
+        sut = PlacesInteractorImp(getPlaces: mockGetPlaces, verifyLocation: mockVerifyLocation)
         sut.presenter = mockPresenter
     }
 
     override func tearDownWithError() throws {
         mockGetPlaces = nil
+        mockVerifyLocation = nil
         mockPresenter = nil
         sut = nil
     }
@@ -29,7 +40,7 @@ final class PlacesInteractorImpTests: XCTestCase {
 
 // MARK: fetchPlaces
 extension PlacesInteractorImpTests {
-    func test_fetchPlaces_whenThrownPlacesError_shouldFailWithPlacesError() async {
+    func test_fetchPlaces_whenThrownPlacesError_shouldFailWithExpectedError() async {
         let expectedError = PlacesError.noResult
         mockGetPlaces.error = expectedError
 
@@ -59,6 +70,24 @@ extension PlacesInteractorImpTests {
 
 // MARK: selectLocation
 extension PlacesInteractorImpTests {
+    func test_selectLocation_whenThrownPlacesError_shouldFailWithExpectedError() async {
+        let expectedError = PlacesError.noResult
+        mockVerifyLocation.error = expectedError
+
+        await sut.select(place: .chicago)
+
+        XCTAssertEqual(mockPresenter.failureError, expectedError)
+    }
+
+    func test_selectLocation_whenThrownAnyError_shouldFailWithUnderlyingError() async {
+        let expectedError = TestError.notAllowed
+        mockVerifyLocation.error = expectedError
+
+        await sut.select(place: .chicago)
+
+        XCTAssertEqual(mockPresenter.failureError, .underlying(expectedError))
+    }
+
     func test_selectLocation_shouldRedirectWithExpectedQuery() async {
         await sut.select(place: .chicago)
 

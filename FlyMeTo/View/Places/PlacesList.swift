@@ -7,10 +7,21 @@
 
 import SwiftUI
 
-struct PlacesList: View {
+struct PlacesList<Supplement: View>: View {
     @Binding var places: [Place]
+    @ViewBuilder var supplement: Supplement
 
     var onTap: ((Place) -> Void)?
+
+    init(
+        places: Binding<[Place]>,
+        @ViewBuilder supplement: () -> Supplement = { EmptyView() },
+        onTap: ((Place) -> Void)? = nil
+    ) {
+        self._places = places
+        self.supplement = supplement()
+        self.onTap = onTap
+    }
 
     var body: some View {
         List {
@@ -36,12 +47,18 @@ struct PlacesList: View {
                     onTap?(place)
                 }
             }
+            
+            supplement
         }
         .listRowSpacing(16)
+        .onTapGesture {
+            hideKeyboard()
+        }
     }
 }
 
 #Preview("Places List") {
     PlacesList(places: .constant(.stub))
+        .scrollContentBackground(.hidden)
+        .background(Color.backgroundPrimary)
 }
-

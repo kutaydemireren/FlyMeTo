@@ -59,7 +59,7 @@ enum PlacesError: LocalizedError, Equatable {
         case .latitudeInvalid:
             return "Please make sure latitude is in range \(Double.lowestPossibleLatitude)-\(Double.highestPossibleLatitude)"
         case .longitudeInvalid:
-            return "Please make sure latitude is in range \(Double.lowestPossibleLongitude)-\(Double.highestPossibleLongitude)"
+            return "Please make sure longitude is in range \(Double.lowestPossibleLongitude)-\(Double.highestPossibleLongitude)"
         }
     }
 }

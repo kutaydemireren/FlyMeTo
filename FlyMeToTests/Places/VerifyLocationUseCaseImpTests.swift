@@ -19,7 +19,7 @@ final class VerifyLocationUseCaseImpTests: XCTestCase {
         sut = nil
     }
 
-    func test_verify_whenLatitudeInvalid_shouldThrowExpectedError() async {
+    func test_verify_whenLatitudeInvalid_shouldThrowLatitudeInvalid() async {
         let location = PlaceLocation(lat: .invalidLatitude, long: .invalidLongitude)
         do {
             let _ = try sut.verify(location)
@@ -29,7 +29,7 @@ final class VerifyLocationUseCaseImpTests: XCTestCase {
         }
     }
 
-    func test_verify_whenLongitudeInvalid_shouldThrowExpectedError() async {
+    func test_verify_whenLongitudeInvalid_shouldThrowLongitudeInvalid() async {
         let location = PlaceLocation(lat: .validLatitude, long: .invalidLongitude)
         do {
             let _ = try sut.verify(location)

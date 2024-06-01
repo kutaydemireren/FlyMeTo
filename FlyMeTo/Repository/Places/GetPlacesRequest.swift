@@ -8,6 +8,6 @@
 import Foundation
 
 struct GetPlacesRequest: Request {
-    var host: String = "raw.githubusercontent.com"
+    var host: String = "---m"
     var path: String = "---"
 }

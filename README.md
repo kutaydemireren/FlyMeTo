@@ -39,7 +39,7 @@ In this single page application, `Place`s can be fetched remotely and be display
 
 ### Design
 
-The project design is heavily inspired by Clean Architecture. It tries to show what I think how the structure and communication could look like, given the requirements such as networking or redirecting user to another application.
+The project design is inspired by clean architecture. It tries to show what I think how a simple structure could look like, given the requirements such as networking or redirecting user to another application. That being said, it tried to be kept at its simplest effective form for sake of being practical especially in maintaining.
 
 Please keep in mind that although the project is monolithic, the boundaries are respected throughout the project and interactions between elements are carefully made.
 
@@ -50,7 +50,7 @@ Looking from a broad perspective, there are 2 layers defining FlyMeTo:
 The rest of the layers are considered to be an addition to the core of the application. Meaning that, application logic should have nothing to do with them, and rather they must be adapting to the application logic. This is essentially important for the maintenance of external sources or platform specifics. These layers are:
 - Presentation: where lives the views displayed on screen, or platform (iOS) specific files and logics.
 - Repository: included to be able to feed the application through `Place`s. At the moment, only depends on `Network` to do so.
-- Network: included to handle networking. At the moment, all the remote tasks the application has can be found here.
+- Network: included to handle networking. At the moment, all the remote tasks the app have can be found here.
 
 ### Flow 
 
@@ -81,7 +81,7 @@ For the sake of keeping the project clean but effective, injection is done simpl
 Unit tests are added as a result of TDD. The purpose of the tests is to enable faster and consistent progress of mine, rather than 'for the sake of having a coverage'.
 
 That is also why, in areas where I feel the above purpose is defeated, I prioritise implementation over coverage.
-A good example is the UI code in this project. I believe unit testing UI is not practical, so I tend not to write against them.
+A good example is the UI code in this project. I believe unit testing UI is not practical, especially if it is SwiftUI. Since the purpose of existing tests are to iterate in quick loops, Previews are already much capable of helping me in doing so.
 
 By their nature, any kind of `View` tend to be updated much more frequently than the application logic. For instance, while most probably `PlacesRepository` will continue to return places, `PlacesView` might need to update how the cells looks like quite soon (I know it does not look good!), or update the background.
 Additionally, UI can be verified quite easily - especially if it is SwiftUI, thanks to the previews.
